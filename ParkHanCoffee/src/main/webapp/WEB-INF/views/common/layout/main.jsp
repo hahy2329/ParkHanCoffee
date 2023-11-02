@@ -27,18 +27,24 @@
 							<li class="active-menu">
 								<a href="index.html">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
+									<li><a href="index.html">브랜드</a></li>
+									<li><a href="home-02.html">인사말</a></li>
+									<li><a href="home-03.html">찾아오시는 길</a></li>
 								</ul>
 							</li>
 
 							<li>
-								<a href="${contextPath }/ParkHanShop/menu">Shop</a>
+								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shoping-cart.html">ParkHan소식</a>
+								<ul class="sub-menu">
+									<li><a href="index.html">공지사항</a></li>
+									<li><a href="home-02.html">이벤트</a></li>
+									<li><a href="home-03.html">FAQ</a></li>
+									<li><a href="home-03.html">고객의 소리</a></li>
+								</ul>
 							</li>
 
 							<li>

@@ -24,20 +24,26 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="${contextPath }/">Home</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
+									<li><a href="index.html">브랜드</a></li>
+									<li><a href="home-02.html">인사말</a></li>
+									<li><a href="home-03.html">찾아오시는 길</a></li>
 								</ul>
 							</li>
 
 							<li class="active-menu">
-								<a href="${contextPath }/ParkHanShop/menu">Shop</a>
+								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="shoping-cart.html">ParkHan소식</a>
+								<ul class="sub-menu">
+									<li><a href="index.html">공지사항</a></li>
+									<li><a href="home-02.html">이벤트</a></li>
+									<li><a href="home-03.html">FAQ</a></li>
+									<li><a href="home-03.html">고객의 소리</a></li>
+								</ul>
 							</li>
 
 							<li>
@@ -55,19 +61,21 @@
 					</div>	
 
 					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
+					<c:if test="${sessionScope.humanId ne null }">
+						<div class="wrap-icon-header flex-w flex-r-m">
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+								<i class="zmdi zmdi-search"></i>
+							</div>
+	
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="0">
+								<i class="zmdi zmdi-shopping-cart"></i>
+							</div>
+	
+							<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+								<i class="zmdi zmdi-favorite-outline"></i>
+							</a>
 						</div>
-
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
-					</div>
+					</c:if>
 				</nav>
 			</div>
 		</div>
@@ -189,6 +197,7 @@
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
 						Watches
 					</button>
+					
 				</div>
 
 				<div class="flex-w flex-c-m m-tb-10">
@@ -204,6 +213,16 @@
 						Search
 					</div>
 				</div>
+				<c:if test="${sessionScope.adminId ne null }">
+					<div align="left">
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+								<a href="${contextPath }/admin/productRegistration">상품등록</a>
+						</button>
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+								<a href="${contextPath }/admin/productDelete">상품삭제</a>
+						</button>
+					</div>
+				</c:if>
 				
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
