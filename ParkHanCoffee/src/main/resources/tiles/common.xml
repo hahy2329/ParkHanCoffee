@@ -12,10 +12,4 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/layout/main.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="/ParkHanShop/menu" extends="baseLayout">
-		<put-attribute name="title" value="ParkHan커피"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/common/layout/menu.jsp"></put-attribute>
-	</definition>
-
-
 </tiles-definitions>
