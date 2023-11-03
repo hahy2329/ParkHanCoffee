@@ -18,7 +18,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="${contextPath }/resources/cozastore-master/images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="${contextPath }/resources/cozastore-master/images/icons/favicon.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -62,6 +62,7 @@
 					</div>	
 
 					<!-- Icon header -->
+					<c:if test="${sessionScope.humanId ne null }">
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
@@ -75,6 +76,7 @@
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a>
 					</div>
+					</c:if>
 				</nav>
 			</div>
 		</div>

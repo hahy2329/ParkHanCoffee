@@ -16,22 +16,51 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+						ParkHan커피에 오신 걸 환영합니다!
 					</div>
-
+					<c:if test="${sessionScope.humanId eq null and sessionScope.adminId eq null }">
 					<div class="right-top-bar flex-w h-full">
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							미지정
+							회원 로그인
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							미지정
+							회원 ID/PW찾기
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							미지정
+						<a href="${contextPath }/admin/login" class="flex-c-m trans-04 p-lr-25">
+							관리자 로그인
 						</a>
 					</div>
+					</c:if>
+					
+					<c:if test="${sessionScope.humanId ne null }">
+					<div class="right-top-bar flex-w h-full">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							${sessionScope.humanId }님
+						</a>
+						
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							마이페이지
+						</a>
+						
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							로그아웃
+						</a>
+					</div>
+					</c:if>
+					
+					<c:if test="${sessionScope.adminId ne null }">
+					<div class="right-top-bar flex-w h-full">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							${sessionScope.adminId }님
+						</a>
+						
+						<a href="${contextPath }/admin/logout" class="flex-c-m trans-04 p-lr-25">
+							로그아웃
+						</a>
+					</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

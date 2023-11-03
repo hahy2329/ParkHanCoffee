@@ -17,7 +17,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="${contextPath }/resources/cozastore-master/images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="${contextPath }/resources/cozastore-master/images/icons/favicon.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -215,10 +215,10 @@
 				</div>
 				<c:if test="${sessionScope.adminId ne null }">
 					<div align="left">
-						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="#">
 								<a href="${contextPath }/admin/productRegistration">상품등록</a>
 						</button>
-						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="#">
 								<a href="${contextPath }/admin/productDelete">상품삭제</a>
 						</button>
 					</div>

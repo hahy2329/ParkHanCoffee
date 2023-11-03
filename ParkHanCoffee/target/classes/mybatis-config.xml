@@ -5,7 +5,10 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
-
-
+	
+	
+	<typeAliases>
+		<typeAlias type="com.application.ParkHanCoffee.admin.dto.AdminDTO" alias="AdminDTO"/>
+	</typeAliases>
 
 </configuration>
