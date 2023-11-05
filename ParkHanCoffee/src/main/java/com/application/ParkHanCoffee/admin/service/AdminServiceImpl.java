@@ -17,6 +17,11 @@ public class AdminServiceImpl implements AdminService {
 		return adminDAO.login(adminDTO);
 		
 	}
+
+	@Override
+	public boolean checkDuplicatedPasswd(AdminDTO adminDTO) throws Exception {
+		return adminDAO.checkDuplicatedPasswd(adminDTO);
+	}
 	
 
 }

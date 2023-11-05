@@ -6,4 +6,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/login.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="/admin/ParkHanShop/productRegistration" extends="baseLayout">
+		<put-attribute name="title" value="ParkHan커피"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/ParkHanShop/productRegistration.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

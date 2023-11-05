@@ -5,4 +5,5 @@ import com.application.ParkHanCoffee.admin.dto.AdminDTO;
 public interface AdminService {
 	
 	public AdminDTO login(AdminDTO adminDTO) throws Exception;
+	public boolean checkDuplicatedPasswd(AdminDTO adminDTO) throws Exception;
 }

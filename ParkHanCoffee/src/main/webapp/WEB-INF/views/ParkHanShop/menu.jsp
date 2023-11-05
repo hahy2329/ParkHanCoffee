@@ -16,7 +16,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="${contextPath }/" class="logo">
 						<img src="${contextPath }/resources/cozastore-master/images/icons/favicon.png" alt="IMG-LOGO">
 					</a>
 
@@ -34,6 +34,12 @@
 
 							<li class="active-menu">
 								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
+								<c:if test="${sessionScope.adminId ne null }">
+									<ul class="sub-menu">
+										<li><a href="${contextPath }/admin/ParkHanShop/productRegistration">상품등록</a></li>
+										<li><a href="home-02.html">상품삭제</a></li>
+									</ul>
+								</c:if>
 							</li>
 
 							<li class="label1" data-label1="hot">
@@ -213,16 +219,6 @@
 						Search
 					</div>
 				</div>
-				<c:if test="${sessionScope.adminId ne null }">
-					<div align="left">
-						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="#">
-								<a href="${contextPath }/admin/productRegistration">상품등록</a>
-						</button>
-						<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="#">
-								<a href="${contextPath }/admin/productDelete">상품삭제</a>
-						</button>
-					</div>
-				</c:if>
 				
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">

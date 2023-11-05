@@ -17,7 +17,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="${contextPath }/" class="logo">
 						<img src="${contextPath }/resources/cozastore-master/images/icons/favicon.png" alt="IMG-LOGO">
 					</a>
 
@@ -35,6 +35,12 @@
 
 							<li>
 								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
+								<c:if test="${sessionScope.adminId ne null }">
+									<ul class="sub-menu">
+										<li><a href="${contextPath }/admin/ParkHanShop/productRegistration">상품등록</a></li>
+										<li><a href="home-02.html">상품삭제</a></li>
+									</ul>
+								</c:if>
 							</li>
 
 							<li class="label1" data-label1="hot">

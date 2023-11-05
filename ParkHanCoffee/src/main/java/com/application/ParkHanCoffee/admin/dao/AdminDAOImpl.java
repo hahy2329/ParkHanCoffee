@@ -16,6 +16,19 @@ public class AdminDAOImpl implements AdminDAO {
 	public AdminDTO login(AdminDTO adminDTO) throws Exception {
 		return sqlSession.selectOne("admin.getLoginInfo", adminDTO);
 	}
+
+	@Override
+	public boolean checkDuplicatedPasswd(AdminDTO adminDTO) throws Exception {
+		if(sqlSession.selectOne("admin.checkDuplicatedPasswd",adminDTO)!=null) {
+			return true;
+		}else {
+			return false;
+		}
+		
+			
+	}
+	
+	
 	
 	
 	

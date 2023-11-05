@@ -14,7 +14,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
+					<a href="${contextPath }/" class="logo">
 						<img src="${contextPath }/resources/cozastore-master/images/icons/favicon.png" alt="IMG-LOGO">
 					</a>
 
@@ -73,11 +73,11 @@
 						</h3>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="adminId" placeholder="ID를 입력해주세요.">				
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="adminId" placeholder="ID를 입력해주세요." required="required">				
 						</div>
 						
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="adminPassword" placeholder="Password를 입력해주세요.">				
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="adminPassword" placeholder="Password를 입력해주세요." required="required">				
 						</div>
 	
 						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">

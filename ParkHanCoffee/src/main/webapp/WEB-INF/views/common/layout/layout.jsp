@@ -42,7 +42,7 @@
 	<link rel="stylesheet" type="text/css" href="${contextPath }/resources/cozastore-master/css/main.css">
 <!--===============================================================================================-->
 	<script src="${contextPath }/resources/cozastore-master/ckeditor/ckeditor.js"></script>
-	<script src="${contextPath }/resources/cozastore-master/vendor/jquery-3.2.1.min.js"></script>
+	<script src="${contextPath }/resources/cozastore-master/vendor/jquery/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	

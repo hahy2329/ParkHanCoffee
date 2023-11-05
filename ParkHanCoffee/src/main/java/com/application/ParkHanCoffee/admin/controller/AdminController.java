@@ -87,4 +87,32 @@ public class AdminController {
 		
 	}
 	
+	@GetMapping("/ParkHanShop/productRegistration")
+	public ModelAndView productRegistration() throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/ParkHanShop/productRegistration");
+		return mv;
+		
+	}
+	
+	@GetMapping("/checkDuplicatedPasswd")
+	public ResponseEntity<String> checkDuplicatedPasswd(AdminDTO adminDTO) throws Exception{
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		
+		if(adminService.checkDuplicatedPasswd(adminDTO)) {
+			
+			return new ResponseEntity<String>("duplicate", responseHeaders, HttpStatus.OK);
+			
+		}else {
+			
+			return new ResponseEntity<String>("Notduplicate", responseHeaders, HttpStatus.OK);
+			
+		}
+		
+	}
+	
 }
