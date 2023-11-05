@@ -1,5 +1,11 @@
 package com.application.ParkHanCoffee.admin.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,14 +17,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.application.ParkHanCoffee.admin.dto.AdminDTO;
 import com.application.ParkHanCoffee.admin.service.AdminService;
+import com.application.ParkHanCoffee.product.dto.ProductDTO;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+	
+	private String FILE_REPO_PATH = "C:\\coffeeImage\\";
 	
 	@Autowired
 	private AdminService adminService;
@@ -112,6 +123,73 @@ public class AdminController {
 			return new ResponseEntity<String>("Notduplicate", responseHeaders, HttpStatus.OK);
 			
 		}
+		
+	}
+	
+	@PostMapping("/ParkHanShop/productRegistration")
+	public ResponseEntity<Object> productRegistration(MultipartHttpServletRequest multipartRequest, HttpServletRequest request) throws Exception{
+		
+		ProductDTO productDTO = new ProductDTO();
+		
+		Iterator<String> fileList = multipartRequest.getFileNames();
+		String fileName = "";
+		
+		while(fileList.hasNext()) {
+			MultipartFile uploadFile = multipartRequest.getFile(fileList.next());
+				if(!uploadFile.getOriginalFilename().isEmpty()) {
+					SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+					fileName = fmt.format(new Date()) + "_" + UUID.randomUUID() + "_" + uploadFile.getOriginalFilename();
+					uploadFile.transferTo(new File(FILE_REPO_PATH + fileName));
+					productDTO.setCoffeeImage(fileName);
+				}
+		}
+		
+		int coffeeWeightInt = Integer.parseInt(multipartRequest.getParameter("coffeeWeight"));
+		int coffeeKcalInt = Integer.parseInt(multipartRequest.getParameter("coffeeKcal"));
+		int coffeeFatInt = Integer.parseInt(multipartRequest.getParameter("coffeeFat"));
+		int coffeeSaccharidesInt = Integer.parseInt(multipartRequest.getParameter("coffeeSaccharides"));
+		int coffeeSodiumInt = Integer.parseInt(multipartRequest.getParameter("coffeeSodium"));
+		int coffeeProteinInt = Integer.parseInt(multipartRequest.getParameter("coffeeProtein"));
+		int coffeeCaffeineInt = Integer.parseInt(multipartRequest.getParameter("coffeeCaffeine"));
+		
+		SimpleDateFormat fmtt = new SimpleDateFormat("yyyy-MM-dd");
+		Date coffeeReleaseDateParse = fmtt.parse(multipartRequest.getParameter("coffeeReleaseDate"));
+		
+		int coffeePriceInt = Integer.parseInt(multipartRequest.getParameter("coffeePrice"));
+		int coffeeInventoryMountInt = Integer.parseInt(multipartRequest.getParameter("coffeeInventoryMount"));
+		
+		
+		
+		
+		productDTO.setCoffeeSubject(multipartRequest.getParameter("coffeeSubject"));
+		productDTO.setCoffeeSubjectEn(multipartRequest.getParameter("coffeeSubjectEn"));
+		productDTO.setCoffeeWeight(coffeeWeightInt);
+		productDTO.setCoffeeKcal(coffeeKcalInt);
+		productDTO.setCoffeeContent(multipartRequest.getParameter("coffeeContent"));
+		productDTO.setCoffeeAllergy(multipartRequest.getParameter("coffeeAllergy"));
+		productDTO.setCoffeeFat(coffeeFatInt);
+		productDTO.setCoffeeSaccharides(coffeeSaccharidesInt);
+		productDTO.setCoffeeSodium(coffeeSodiumInt);
+		productDTO.setCoffeeProtein(coffeeProteinInt);
+		productDTO.setCoffeeCaffeine(coffeeCaffeineInt);
+		productDTO.setCoffeeSort(multipartRequest.getParameter("coffeeSort"));
+		productDTO.setCoffeeReleaseDate(coffeeReleaseDateParse);
+		productDTO.setCoffeePrice(coffeePriceInt);
+		productDTO.setCoffeeInventoryMount(coffeeInventoryMountInt);
+		
+		
+		adminService.registrationProduct(productDTO);
+		
+		String message = "<script>";
+		message +="alert('정상적으로 등록 되었습니다.');";
+		message +="location.href='" + request.getContextPath() + "/';";
+		message +="</script>";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
+		
 		
 	}
 	

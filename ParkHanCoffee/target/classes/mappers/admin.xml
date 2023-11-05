@@ -24,5 +24,34 @@
 	
 	
 	</select>
+	
+	<insert id="registrationProduct" parameterType="ProductDTO">
+		
+		INSERT INTO COFFEE(COFFEE_IMAGE,COFFEE_SUBJECT,COFFEE_SUBJECT_EN,COFFEE_WEIGHT,COFFEE_KCAL,COFFEE_CONTENT,COFFEE_ALLERGY,COFFEE_FAT,
+							COFFEE_SACCHARIDES,COFFEE_SODIUM,COFFEE_PROTEIN,COFFEE_CAFFEINE,COFFEE_SORT,COFFEE_RELEASEDATE,COFFEE_PRICE,COFFEE_INVENTORYAMOUNT)
+		
+		VALUESE(
+		
+			#{coffeeImage},
+			#{coffeeSubject},
+			#{coffeeSubjectEn},
+			#{coffeeWeight},
+			#{coffeeKcal},
+			#{coffeeContent},
+			#{coffeeAllergy},
+			#{coffeeFat},
+			#{coffeeSaccharides},
+			#{coffeeSodium},
+			#{coffeeProtein},
+			#{coffeeCaffeine},
+			#{coffeeSort},
+			#{coffeeReleaseDate},
+			#{coffeePrice},
+			#{coffeeInventoryMount}
+			
+		
+		)
+	
+	</insert>
 
 </mapper>

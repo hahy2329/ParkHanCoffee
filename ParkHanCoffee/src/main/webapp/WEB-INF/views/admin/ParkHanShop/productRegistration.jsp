@@ -55,7 +55,7 @@
 			}
 			
 			if(isValid == true){
-				$("[name='coffeeReleasedate']").val($("#coffeeY").val() +"-" + $("#coffeeM").val() + "-" + $("#coffeeD").val());
+				$("[name='coffeeReleaseDate']").val($("#coffeeY").val() +"-" + $("#coffeeM").val() + "-" + $("#coffeeD").val());
 				return true;
 			}
 			
@@ -147,7 +147,7 @@
 							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" id="adminPassword" name="adminPassword" placeholder="Password를 입력해주세요." required="required">				
 							<br>
 							<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" id="btnOverlappedPasswd" value="인증">
-									등록
+									인증
 							</button>
 						</div>
 						
@@ -250,7 +250,7 @@
 									</c:choose>
 								</c:forEach>
 							</select>					
-						<input type="hidden" name="coffeeReleasedate">
+						<input type="hidden" name="coffeeReleaseDate">
 						</div>
 						
 						<div class="bor8 m-b-20 how-pos4-parent">
