@@ -8,6 +8,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	
+	var price2 = $("#coffeePrice").text();
+	
+	$().ready(function(){
+		
+		
+		
+		$(".answer").append("<p style= 'color:green';>" + number_format(String(price2)) + "</p>");
+		
+	});
+	
+
+</script>
 </head>
 <body class="animsition">
 		<header class="header-v4">
@@ -440,7 +454,7 @@
 									${productDTO.coffeeSubject }
 								</a>
 
-								<span class="stext-105 cl3">
+								<span class="stext-105 cl3" id="coffeePrice">
 									${productDTO.coffeePrice }원
 								</span>
 							</div>

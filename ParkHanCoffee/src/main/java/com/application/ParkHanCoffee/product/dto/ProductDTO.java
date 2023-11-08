@@ -22,7 +22,7 @@ public class ProductDTO {
 	private int coffeeCaffeine;
 	private String coffeeSort;
 	private Date  coffeeReleaseDate;
-	private int coffeePrice;
+	private String coffeePrice;
 	private int coffeeInventoryMount;
 	
 	public long getCoffeeId() {
@@ -115,10 +115,10 @@ public class ProductDTO {
 	public void setCoffeeReleaseDate(Date coffeeReleaseDate) {
 		this.coffeeReleaseDate = coffeeReleaseDate;
 	}
-	public int getCoffeePrice() {
+	public String getCoffeePrice() {
 		return coffeePrice;
 	}
-	public void setCoffeePrice(int coffeePrice) {
+	public void setCoffeePrice(String coffeePrice) {
 		this.coffeePrice = coffeePrice;
 	}
 	public int getCoffeeInventoryMount() {
@@ -137,6 +137,7 @@ public class ProductDTO {
 				+ coffeeSort + ", coffeeReleaseDate=" + coffeeReleaseDate + ", coffeePrice=" + coffeePrice
 				+ ", coffeeInventoryMount=" + coffeeInventoryMount + ", toString()=" + super.toString() + "]";
 	}
+	
 	
 	
 	

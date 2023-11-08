@@ -157,7 +157,7 @@ public class AdminController {
 		SimpleDateFormat fmtt = new SimpleDateFormat("yyyy-MM-dd");
 		Date coffeeReleaseDateParse = fmtt.parse(multipartRequest.getParameter("coffeeReleaseDate"));
 		
-		int coffeePriceInt = Integer.parseInt(multipartRequest.getParameter("coffeePrice"));
+		
 		int coffeeInventoryMountInt = Integer.parseInt(multipartRequest.getParameter("coffeeInventoryMount"));
 		
 		
@@ -176,7 +176,7 @@ public class AdminController {
 		productDTO.setCoffeeCaffeine(coffeeCaffeineInt);
 		productDTO.setCoffeeSort(multipartRequest.getParameter("coffeeSort"));
 		productDTO.setCoffeeReleaseDate(coffeeReleaseDateParse);
-		productDTO.setCoffeePrice(coffeePriceInt);
+		productDTO.setCoffeePrice(multipartRequest.getParameter("coffeePrice"));
 		productDTO.setCoffeeInventoryMount(coffeeInventoryMountInt);
 		
 		

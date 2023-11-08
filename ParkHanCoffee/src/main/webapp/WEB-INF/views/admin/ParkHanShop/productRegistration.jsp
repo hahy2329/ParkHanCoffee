@@ -9,6 +9,31 @@
 <title>Insert title here</title>
 <script>
 	
+	function comma(str) {
+	    str = String(str);
+	    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+	}
+	
+	function uncomma(str) {
+	    str = String(str);
+	    return str.replace(/[^\d]+/g, '');
+	} 
+	
+	function inputNumberFormat(obj) {
+	    obj.value = comma(uncomma(obj.value));
+	}
+	
+	function inputOnlyNumberFormat(obj) {
+	    obj.value = onlynumber(uncomma(obj.value));
+	}
+	
+	function onlynumber(str) {
+	    str = String(str);
+	    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1');
+	}
+	
+	
+	
 	var isValid = false;
 	
 	$().ready(function() {
@@ -254,7 +279,7 @@
 						</div>
 						
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" id="coffeePrice" name="coffeePrice" placeholder="상품의 가격을 숫자로 입력해주세요." required="required">				
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" id="coffeePrice" name="coffeePrice"  onkeyup="inputNumberFormat(this);"  placeholder="상품의 가격을 숫자로 입력해주세요." required="required">				
 						</div>
 						
 						<div class="bor8 m-b-20 how-pos4-parent">
