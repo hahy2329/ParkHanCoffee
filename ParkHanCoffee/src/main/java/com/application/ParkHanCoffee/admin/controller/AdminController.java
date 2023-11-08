@@ -29,7 +29,7 @@ import com.application.ParkHanCoffee.product.dto.ProductDTO;
 @RequestMapping("/admin")
 public class AdminController {
 	
-	private String FILE_REPO_PATH = "C:\\coffeeImage\\";
+	private String FILE_REPO_PATH = "C:\\coffee_Image\\";
 	
 	@Autowired
 	private AdminService adminService;
@@ -146,11 +146,13 @@ public class AdminController {
 		
 		int coffeeWeightInt = Integer.parseInt(multipartRequest.getParameter("coffeeWeight"));
 		int coffeeKcalInt = Integer.parseInt(multipartRequest.getParameter("coffeeKcal"));
-		int coffeeFatInt = Integer.parseInt(multipartRequest.getParameter("coffeeFat"));
-		int coffeeSaccharidesInt = Integer.parseInt(multipartRequest.getParameter("coffeeSaccharides"));
-		int coffeeSodiumInt = Integer.parseInt(multipartRequest.getParameter("coffeeSodium"));
-		int coffeeProteinInt = Integer.parseInt(multipartRequest.getParameter("coffeeProtein"));
+		float coffeeFatFt = Float.parseFloat(multipartRequest.getParameter("coffeeFat"));
+		float coffeeSaccharidesFt = Float.parseFloat(multipartRequest.getParameter("coffeeSaccharides"));
+		float coffeeSodiumFt = Float.parseFloat(multipartRequest.getParameter("coffeeSodium"));
+		float coffeeProteinFt = Float.parseFloat(multipartRequest.getParameter("coffeeProtein"));
 		int coffeeCaffeineInt = Integer.parseInt(multipartRequest.getParameter("coffeeCaffeine"));
+		
+		
 		
 		SimpleDateFormat fmtt = new SimpleDateFormat("yyyy-MM-dd");
 		Date coffeeReleaseDateParse = fmtt.parse(multipartRequest.getParameter("coffeeReleaseDate"));
@@ -167,10 +169,10 @@ public class AdminController {
 		productDTO.setCoffeeKcal(coffeeKcalInt);
 		productDTO.setCoffeeContent(multipartRequest.getParameter("coffeeContent"));
 		productDTO.setCoffeeAllergy(multipartRequest.getParameter("coffeeAllergy"));
-		productDTO.setCoffeeFat(coffeeFatInt);
-		productDTO.setCoffeeSaccharides(coffeeSaccharidesInt);
-		productDTO.setCoffeeSodium(coffeeSodiumInt);
-		productDTO.setCoffeeProtein(coffeeProteinInt);
+		productDTO.setCoffeeFat(coffeeFatFt);
+		productDTO.setCoffeeSaccharides(coffeeSaccharidesFt);
+		productDTO.setCoffeeSodium(coffeeSodiumFt);
+		productDTO.setCoffeeProtein(coffeeProteinFt);
 		productDTO.setCoffeeCaffeine(coffeeCaffeineInt);
 		productDTO.setCoffeeSort(multipartRequest.getParameter("coffeeSort"));
 		productDTO.setCoffeeReleaseDate(coffeeReleaseDateParse);

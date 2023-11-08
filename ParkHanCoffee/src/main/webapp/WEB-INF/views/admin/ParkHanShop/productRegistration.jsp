@@ -205,7 +205,7 @@
 						</div>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="상품의 종류를 선택해주세요.">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="상품의 종류를 선택해주세요." readonly="readonly">
 							<select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="coffeeSort" id="coffeeSort" required="required">
 								<option value="coffee">커피</option>
 								<option value="tea">티</option>
@@ -218,7 +218,7 @@
 						</div>
 						
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="상품의 출시일을 선택해주세요.">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="상품의 출시일을 선택해주세요." readonly="readonly">
 							
 							<select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="coffeeY" id="coffeeY" required="required">
 								<c:forEach var="i" begin="0" end="2023">

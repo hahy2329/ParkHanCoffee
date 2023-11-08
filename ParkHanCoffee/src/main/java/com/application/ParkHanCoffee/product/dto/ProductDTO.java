@@ -15,10 +15,10 @@ public class ProductDTO {
 	private int coffeeKcal;
 	private String coffeeContent;
 	private String coffeeAllergy;
-	private int coffeeFat;
-	private int coffeeSaccharides;
-	private int coffeeSodium;
-	private int coffeeProtein;
+	private float coffeeFat;
+	private float coffeeSaccharides;
+	private float coffeeSodium;
+	private float coffeeProtein;
 	private int coffeeCaffeine;
 	private String coffeeSort;
 	private Date  coffeeReleaseDate;
@@ -73,28 +73,28 @@ public class ProductDTO {
 	public void setCoffeeAllergy(String coffeeAllergy) {
 		this.coffeeAllergy = coffeeAllergy;
 	}
-	public int getCoffeeFat() {
+	public float getCoffeeFat() {
 		return coffeeFat;
 	}
-	public void setCoffeeFat(int coffeeFat) {
+	public void setCoffeeFat(float coffeeFat) {
 		this.coffeeFat = coffeeFat;
 	}
-	public int getCoffeeSaccharides() {
+	public float getCoffeeSaccharides() {
 		return coffeeSaccharides;
 	}
-	public void setCoffeeSaccharides(int coffeeSaccharides) {
+	public void setCoffeeSaccharides(float coffeeSaccharides) {
 		this.coffeeSaccharides = coffeeSaccharides;
 	}
-	public int getCoffeeSodium() {
+	public float getCoffeeSodium() {
 		return coffeeSodium;
 	}
-	public void setCoffeeSodium(int coffeeSodium) {
+	public void setCoffeeSodium(float coffeeSodium) {
 		this.coffeeSodium = coffeeSodium;
 	}
-	public int getCoffeeProtein() {
+	public float getCoffeeProtein() {
 		return coffeeProtein;
 	}
-	public void setCoffeeProtein(int coffeeProtein) {
+	public void setCoffeeProtein(float coffeeProtein) {
 		this.coffeeProtein = coffeeProtein;
 	}
 	public int getCoffeeCaffeine() {
@@ -137,8 +137,6 @@ public class ProductDTO {
 				+ coffeeSort + ", coffeeReleaseDate=" + coffeeReleaseDate + ", coffeePrice=" + coffeePrice
 				+ ", coffeeInventoryMount=" + coffeeInventoryMount + ", toString()=" + super.toString() + "]";
 	}
-	
-	
 	
 	
 	
