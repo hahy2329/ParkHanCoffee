@@ -45,7 +45,7 @@ public class ShopController {
 		
 		File image = new File(FILE_REPO_PATH + coffeeImage);
 		if(image.exists()) {
-			Thumbnails.of(image).forceSize(1200, 1486).outputFormat("jpg").toOutputStream(out);
+			Thumbnails.of(image).forceSize(307, 317).outputFormat("jpg").toOutputStream(out);
 		}
 		byte[] buffer = new byte[1024 * 8];
 		out.write(buffer);

@@ -8,20 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-	
-	var price2 = $("#coffeePrice").text();
-	
-	$().ready(function(){
-		
-		
-		
-		$(".answer").append("<p style= 'color:green';>" + number_format(String(price2)) + "</p>");
-		
-	});
-	
-
-</script>
 </head>
 <body class="animsition">
 		<header class="header-v4">
@@ -441,7 +427,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="${contextPath }/ParkHanShop/thumbnails?images=${productDTO.coffeeImage}" width="1200" height="1486" alt="커피 이미지">
+							<img src="${contextPath }/ParkHanShop/thumbnails?images=${productDTO.coffeeImage}" width="307" height="317" alt="커피 이미지">
 
 							<a href="${contextPath }/ParhHanShop/productDetail?coffeeId=${productDTO.coffeeId}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
