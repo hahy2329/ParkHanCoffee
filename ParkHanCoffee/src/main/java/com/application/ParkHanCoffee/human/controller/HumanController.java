@@ -81,8 +81,19 @@ public class HumanController {
 		humanDTO.setPassword(request.getParameter("password"));
 		humanDTO.setName(request.getParameter("name"));
 		humanDTO.setBirthDt(birthDt);
+		humanDTO.setEmail(request.getParameter("email"));
 		
 		humanService.registerHuman(humanDTO);
+		
+		String message = "<script>";
+		message +="alert('정상적으로 가입이 완료되었습니다.');";
+		message +="location.href='" + request.getContextPath() +"/';";
+		message +="</script>";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
 		
 		
 	}

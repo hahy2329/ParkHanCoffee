@@ -12,6 +12,7 @@ public class HumanDTO {
 	private String name;
 	private Date birthDt;
 	private int point;
+	private String email;
 	private Date enrollDt;
 	
 	public String getHumanId() {
@@ -44,6 +45,12 @@ public class HumanDTO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Date getEnrollDt() {
 		return enrollDt;
 	}
@@ -53,8 +60,11 @@ public class HumanDTO {
 	@Override
 	public String toString() {
 		return "HumanDTO [humanId=" + humanId + ", password=" + password + ", name=" + name + ", birthDt=" + birthDt
-				+ ", point=" + point + ", enrollDt=" + enrollDt + ", toString()=" + super.toString() + "]";
+				+ ", point=" + point + ", email=" + email + ", enrollDt=" + enrollDt + ", toString()="
+				+ super.toString() + "]";
 	}
+	
+	
 	
 	
 	
