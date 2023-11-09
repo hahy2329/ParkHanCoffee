@@ -13,6 +13,7 @@ public class HumanServiceImpl implements HumanService {
 	@Autowired
 	private HumanDAO humanDAO;
 	
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
@@ -33,7 +34,9 @@ public class HumanServiceImpl implements HumanService {
 	@Override
 	public void registerHuman(HumanDTO humanDTO) throws Exception {
 		
-		humanDTO.setPassword(bCryptPasswordEncoder.encode(humanDTO.getPassword()));
+		String passwordEc = bCryptPasswordEncoder.encode(humanDTO.getPassword());
+		
+		humanDTO.setPassword(passwordEc);
 		
 		humanDAO.registerHuman(humanDTO);
 		

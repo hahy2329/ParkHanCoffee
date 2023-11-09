@@ -83,6 +83,13 @@ public class HumanController {
 		humanDTO.setBirthDt(birthDt);
 		humanDTO.setEmail(request.getParameter("email"));
 		
+		System.out.println(humanDTO.getHumanId());
+		System.out.println(humanDTO.getPassword());
+		System.out.println(humanDTO.getName());
+		System.out.println(humanDTO.getBirthDt());
+		System.out.println(humanDTO.getEmail());
+		
+		
 		humanService.registerHuman(humanDTO);
 		
 		String message = "<script>";

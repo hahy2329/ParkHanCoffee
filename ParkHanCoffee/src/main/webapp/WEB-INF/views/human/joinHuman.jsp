@@ -221,19 +221,25 @@
 						</h3>
 
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" id="humanId" name="humanId" required="required" placeholder="가입하실 ID를 입력해 주세요.">				
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" id="password" name="password" placeholder="등록하실 PW를 입력해주세요." required="required">				
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" id="confirmPasswd" placeholder="PW를 한 번 더 입력해주세요." required="required">				
-							<br>
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" id="humanId" name="humanId" required="required" placeholder="가입하실 ID를 입력해 주세요.">
+						</div>
+						<br>
 							<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" id="btnOverlappedInfo" value="인증">
 									인증
 							</button>
-						</div>
 						<p class="answer"></p><br>
 						
+						<div class="bor8 m-b-20 how-pos4-parent">				
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" id="password" name="password" placeholder="등록하실 PW를 입력해주세요." required="required">				
+						</div>
+						<div class="bor8 m-b-20 how-pos4-parent">	
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" id="confirmPasswd" placeholder="PW를 한 번 더 입력해주세요." required="required">	
+						</div>
+						
+						
+						
 						<div class="bor8 m-b-20 how-pos4-parent">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="이름을 입력해주세요.">
-							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="name" required="required">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="name" required="required" placeholder="이름을 입력해주세요.">
 						</div>
 						
 						<div class="bor8 m-b-20 how-pos4-parent">
