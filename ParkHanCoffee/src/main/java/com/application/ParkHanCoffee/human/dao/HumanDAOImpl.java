@@ -30,4 +30,11 @@ public class HumanDAOImpl implements HumanDAO {
 		return sqlSession.selectOne("human.getOverlappedEmail", email);
 	}
 
+
+	@Override
+	public void registerHuman(HumanDTO humanDTO) throws Exception {
+		 sqlSession.insert("human.registerHuman", humanDTO);
+		
+	}
+
 }
