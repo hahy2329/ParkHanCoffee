@@ -10,6 +10,7 @@
 	<typeAliases>
 		<typeAlias type="com.application.ParkHanCoffee.admin.dto.AdminDTO" alias="AdminDTO"/>
 		<typeAlias type="com.application.ParkHanCoffee.product.dto.ProductDTO" alias="ProductDTO"/>
+		<typeAlias type="com.application.ParkHanCoffee.human.dto.HumanDTO" alias="HumanDTO"/>		
 	</typeAliases>
 
 </configuration>

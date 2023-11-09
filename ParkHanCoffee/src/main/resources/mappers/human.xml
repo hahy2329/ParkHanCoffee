@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="human">
+	
+	<select id="login" parameterType="HumanDTO" resultType="HumanDTO">
+		
+		SELECT
+			*
+		FROM 
+			HUMAN
+		WHERE
+			HUMAN_ID = #{humanId}
+	
+	</select>
+	
+	<select id="getOverlappedId" parameterType="String" resultType="String">
+		
+		SELECT
+			HUMAN_ID
+		FROM
+			HUMAN
+		WHERE
+			HUMAN_ID = #{humanId}
+	
+	</select>
+	
+	<select id="getOverlappedEmail" parameterType="String" resultType="String">
+	
+		SELECT 
+			EMAIL
+		FROM
+			HUMAN
+		WHERE
+			EMAIL = #{email}
+	
+	</select>
+
+
+</mapper>

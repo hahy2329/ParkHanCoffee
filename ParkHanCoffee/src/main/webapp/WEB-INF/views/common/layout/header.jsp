@@ -20,7 +20,11 @@
 					</div>
 					<c:if test="${sessionScope.humanId eq null and sessionScope.adminId eq null }">
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="${contextPath }/human/joinHuman" class="flex-c-m trans-04 p-lr-25">
+							회원가입
+						</a>
+						
+						<a href="${contextPath }/human/login" class="flex-c-m trans-04 p-lr-25">
 							회원 로그인
 						</a>
 
