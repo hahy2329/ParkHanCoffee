@@ -58,7 +58,7 @@
 					}else{
 						alert("이미 존재하는 ID입니다.");
 						isValid = false;
-						$(".answer").append("<p style='color: red;'>" +"비밀번호를 다시 확인해주세요." + "</p>");
+						$(".answer").append("<p style='color: red;'>" +"이미 존재하는 ID입니다." + "</p>");
 					}
 				}
 				
@@ -92,7 +92,7 @@
 					else{
 						alert("이미 존재하는 이메일입니다.");
 						isEmail = false;
-						$(".answer2").append("<p style='color: red;'>" +"비밀번호를 다시 확인해주세요." + "</p>");
+						$(".answer2").append("<p style='color: red;'>" +"이메일을 다시 확인해주세요." + "</p>");
 					}
 					
 				}
