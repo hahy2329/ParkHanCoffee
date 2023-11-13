@@ -443,11 +443,25 @@
 								<span class="stext-105 cl3" id="coffeePrice">
 									${productDTO.coffeePrice }원
 								</span>
+								
 							</div>
+							
 						</div>
+						
+						<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4" align="right">
+								 구매하기
+						</div>
+						
+						<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
+						
+								장바구니
+						</div>
+					
+						
 					</div>
 				</div>
 			</c:forEach>
+			
 			</div>
 
 			<!-- Load more -->
