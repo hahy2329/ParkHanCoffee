@@ -19,4 +19,9 @@ public class ShopServiceImpl implements ShopService {
 		return shopDAO.getProductList();
 	}
 
+	@Override
+	public ProductDTO getProductInfo(long coffeeId) throws Exception {
+		return shopDAO.getProductInfo(coffeeId);
+	}
+
 }

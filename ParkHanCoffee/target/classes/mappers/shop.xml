@@ -11,5 +11,14 @@
 	
 	</select>
 	
+	<select id="getProductInfo" parameterType="Long" resultType="ProductDTO">
+	
+		SELECT 
+			*
+		FROM
+			COFFEE
+		WHERE
+			COFFEE_ID = #{coffeeId}
+	</select>
 
 </mapper>

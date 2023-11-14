@@ -439,7 +439,6 @@
 								<a href="${contextPath }/ParhHanShop/productDetail?coffeeId=${productDTO.coffeeId}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									${productDTO.coffeeSubject }
 								</a>
-
 								<span class="stext-105 cl3" id="coffeePrice">
 									${productDTO.coffeePrice }원
 								</span>
@@ -451,7 +450,7 @@
 						</div>
 						</a>
 						
-						<a href="${contextPath }/ParkHanShop/shoppingBasket?coffeeId=${productDTO.coffeeId}">
+						<a href="${contextPath }/ParkHanShop/shoppingBasket?coffeeId=${productDTO.coffeeId}&humanId=${sessionScope.humanId}">
 						<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
 							장바구니
 						</div>

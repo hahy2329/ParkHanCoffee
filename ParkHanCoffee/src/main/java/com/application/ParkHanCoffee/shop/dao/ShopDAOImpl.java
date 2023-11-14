@@ -19,4 +19,9 @@ public class ShopDAOImpl implements ShopDAO {
 		return sqlSession.selectList("shop.getProductList");
 	}
 
+	@Override
+	public ProductDTO getProductInfo(long coffeeId) throws Exception {
+		return sqlSession.selectOne("shop.getProductInfo", coffeeId);
+	}
+
 }

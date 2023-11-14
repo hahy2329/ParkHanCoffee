@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="basket">
+	
+	<insert id="insertProductInfo" parameterType="BasketDTO">
+		
+		INSERT INTO BASKET(BASKET_IMAGE, BASKET_NAME, BASKET_PRICE, COFFEE_ID, HUMAN_ID)
+		
+		VALUES(
+			#{basketImage},
+			#{basketName},
+			#{basketPrice},
+			#{coffeeId},
+			#{humanId}
+		
+		)
+	
+	
+	</insert>
+	
+	
+</mapper>

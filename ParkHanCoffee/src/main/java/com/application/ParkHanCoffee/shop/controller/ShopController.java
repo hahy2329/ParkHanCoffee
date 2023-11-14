@@ -4,15 +4,20 @@ import java.io.File;
 import java.io.OutputStream;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.application.ParkHanCoffee.basket.dto.BasketDTO;
+import com.application.ParkHanCoffee.basket.service.BasketService;
 import com.application.ParkHanCoffee.product.dto.ProductDTO;
 import com.application.ParkHanCoffee.shop.service.ShopService;
 
@@ -26,6 +31,10 @@ public class ShopController {
 	
 	@Autowired
 	private ShopService shopService;
+	
+	@Autowired
+	private BasketService basketService;
+	
 	
 	@GetMapping("/menu")
 	public ModelAndView menu() throws Exception{
@@ -50,6 +59,23 @@ public class ShopController {
 		byte[] buffer = new byte[1024 * 8];
 		out.write(buffer);
 		out.close();
+		
+		
+	}
+	
+	@PostMapping("/shoppingBasket")
+	public ResponseEntity<Object> shoppingBasket(@RequestParam("coffeeId") long coffeeId ,HttpServletRequest request) throws Exception{
+		
+		ProductDTO productDTO = shopService.getProductInfo(coffeeId);
+		BasketDTO basketDTO = new BasketDTO();
+		basketDTO.setBasketImage(productDTO.getCoffeeImage());
+		basketDTO.setBasketName(productDTO.getCoffeeSubject());
+		basketDTO.setBasketPrice(productDTO.getCoffeePrice());
+		basketDTO.setCoffeeId(productDTO.getCoffeeId());
+		basketDTO.setHumanId(request.getParameter("humanId"));
+		
+		basketService.insertProductInfo(basketDTO);
+		
 		
 		
 	}
