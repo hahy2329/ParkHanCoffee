@@ -65,7 +65,7 @@ public class ShopController {
 		
 	}
 	
-	@PostMapping("/shoppingBasket")
+	@GetMapping("/shoppingBasket")
 	public ResponseEntity<Object> shoppingBasket(@RequestParam("coffeeId") long coffeeId ,HttpServletRequest request) throws Exception{
 		
 		ProductDTO productDTO = shopService.getProductInfo(coffeeId);
