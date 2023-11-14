@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -75,6 +77,16 @@ public class ShopController {
 		basketDTO.setHumanId(request.getParameter("humanId"));
 		
 		basketService.insertProductInfo(basketDTO);
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		String message = "<script>";
+		message +="alert('장바구니 저장 완료!');";
+		message +="location.href='" +request.getContextPath() + "/';";
+		message +="</script>";
+		
+		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
 		
 		
 		
