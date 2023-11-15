@@ -58,6 +58,7 @@
 									<a href="${contextPath }/basket/myCart?humanId=${sessionScope.humanId}">장바구니</a>
 								</li>
 							</c:if>
+							
 							<li>
 								<a href="about.html">About</a>
 							</li>

@@ -162,8 +162,8 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
-								<a href="${contextPath }/">Home</a>
+							<li class="active-menu">
+								<a href="index.html">Home</a>
 								<ul class="sub-menu">
 									<li><a href="index.html">브랜드</a></li>
 									<li><a href="home-02.html">인사말</a></li>
@@ -171,7 +171,7 @@
 								</ul>
 							</li>
 
-							<li class="active-menu">
+							<li>
 								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
 								<c:if test="${sessionScope.adminId ne null }">
 									<ul class="sub-menu">
@@ -181,7 +181,7 @@
 								</c:if>
 							</li>
 
-							<li class="label1" data-label1="hot">
+							<li>
 								<a href="shoping-cart.html">ParkHan소식</a>
 								<ul class="sub-menu">
 									<li><a href="index.html">공지사항</a></li>
@@ -190,11 +190,13 @@
 									<li><a href="home-03.html">고객의 소리</a></li>
 								</ul>
 							</li>
-
-							<li>
-								<a href="blog.html">Blog</a>
-							</li>
-
+							
+							<c:if test="${sessionScope.humanId ne null }">
+								<li>
+									<a href="${contextPath }/basket/myCart?humanId=${sessionScope.humanId}">장바구니</a>
+								</li>
+							</c:if>
+							
 							<li>
 								<a href="about.html">About</a>
 							</li>
@@ -203,7 +205,7 @@
 								<a href="contact.html">Contact</a>
 							</li>
 						</ul>
-					</div>	
+					</div>		
 				</nav>
 			</div>
 		</div>
