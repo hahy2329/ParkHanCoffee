@@ -19,7 +19,7 @@ $().ready(function(){
 		var minus = $("#num-product1").val();
 		console.log(minus);
 		
-		var price = $("#test_body td").eq(3).text();
+		var price = $("#test_body td").eq(3).text(); //eq()는 인덱스로 해당 요소를 찾는 것. 첫 시작은 인덱스 0부터 시작!
 		console.log(price);
 		
 	});
