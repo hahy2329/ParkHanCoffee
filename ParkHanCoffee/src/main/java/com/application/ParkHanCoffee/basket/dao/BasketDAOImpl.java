@@ -1,5 +1,7 @@
 package com.application.ParkHanCoffee.basket.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,8 +21,8 @@ public class BasketDAOImpl implements BasketDAO {
 	}
 
 	@Override
-	public BasketDTO getMyCartInfo(String humanId) throws Exception {
-		return sqlSession.selectOne("basket.getMyCartInfo" , humanId);
+	public List<BasketDTO> getMyCartInfo(String humanId) throws Exception {
+		return sqlSession.selectList("basket.getMyCartInfo" , humanId);
 	}
 
 }

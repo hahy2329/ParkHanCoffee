@@ -8,6 +8,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	
+
+$().ready(function(){
+	
+	$("#minus").click(function(){
+		
+		
+		var minus = $("#num-product1").val();
+		console.log(minus);
+		
+		var price = $("#test_body td").eq(3).text();
+		console.log(price);
+		
+	});
+	
+	$("#plus").click(function(){
+		
+		var plus = $("#num-product1").val();
+		console.log(plus);
+		
+		var price = $("#test_body td").eq(3).text();
+		console.log(price);
+		
+	});
+	
+	
+	
+	
+	
+	
+});
+
+
+
+
+
+</script>
 </head>
 <body class="animsition">
 	<header class="header-v4">
@@ -97,62 +135,40 @@
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
 						<div class="wrap-table-shopping-cart">
-							<table class="table-shopping-cart">
+							<table class="table-shopping-cart" id="test_body">
 								<tr class="table_head">
 									<th class="column-1">상품 이미지</th>
 									<th class="column-2">상품 이름</th>
-									<th class="column-3">상품 가격</th>
-									<th class="column-4">상품 수량</th>
+									<th class="column-3">상품 수량</th>
+									<th class="column-4">상품 가격</th>
 									<th class="column-5">총 금액</th>
 								</tr>
-
+								
+							<c:forEach var="basketDTO" items="${basketList }">	
 								<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+											<img src="${contextPath }/ParkHanShop/thumbnails?images=${basketDTO.basketImage}" width="60" height="80" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2">Fresh Strawberries</td>
-									<td class="column-3">$ 36.00</td>
-									<td class="column-4">
+									<td class="column-2">${basketDTO.basketName }</td>
+									<td class="column-3">
 										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" id="minus">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1">
+											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product1" name="num-product1" value="1">
 
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="plus">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
 									</td>
-									<td class="column-5">$ 36.00</td>
+									<td class="column-4" id="basketPrice">${basketDTO.basketPrice }</td>
+									<td class="column-5" id="totalPrice">$ 36.00</td>
 								</tr>
-
-								<tr class="table_row">
-									<td class="column-1">
-										<div class="how-itemcart1">
-											<img src="images/item-cart-05.jpg" alt="IMG">
-										</div>
-									</td>
-									<td class="column-2">Lightweight Jacket</td>
-									<td class="column-3">$ 16.00</td>
-									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product2" value="1">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-									</td>
-									<td class="column-5">$ 16.00</td>
-								</tr>
+							</c:forEach>
 							</table>
 						</div>
 

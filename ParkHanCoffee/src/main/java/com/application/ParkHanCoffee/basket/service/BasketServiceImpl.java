@@ -1,5 +1,7 @@
 package com.application.ParkHanCoffee.basket.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,7 @@ public class BasketServiceImpl implements BasketService {
 	}
 
 	@Override
-	public BasketDTO getMyCartInfo(String humanId) throws Exception {
+	public List<BasketDTO> getMyCartInfo(String humanId) throws Exception {
 		return basketDAO.getMyCartInfo(humanId);
 	}
 

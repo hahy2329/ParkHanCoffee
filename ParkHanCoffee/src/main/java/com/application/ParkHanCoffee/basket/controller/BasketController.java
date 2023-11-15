@@ -1,5 +1,7 @@
 package com.application.ParkHanCoffee.basket.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +23,8 @@ public class BasketController {
 	public ModelAndView myCart(String humanId) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		BasketDTO basketDTO = basketService.getMyCartInfo(humanId);
-		mv.addObject("basketDTO", basketDTO);
+		List<BasketDTO> basketList = basketService.getMyCartInfo(humanId);
+		mv.addObject("basketList", basketList);
 		mv.setViewName("/basket/myCart");
 		
 		return mv;
