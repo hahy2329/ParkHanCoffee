@@ -17,20 +17,32 @@ $().ready(function(){
 		
 		
 		var minus = $("#num-product1").val();
+		minus = parseInt(minus);
 		console.log(minus);
 		
 		var price = $("#test_body td").eq(3).text(); //eq()는 인덱스로 해당 요소를 찾는 것. 첫 시작은 인덱스 0부터 시작!
+		price = parseInt(price);
 		console.log(price);
+		
+		
+		var totalPrice = minus * price;
+		console.log(totalPrice);
 		
 	});
 	
 	$("#plus").click(function(){
 		
 		var plus = $("#num-product1").val();
+		plus = parseInt(plus);
+		
 		console.log(plus);
 		
 		var price = $("#test_body td").eq(3).text();
+		price = parseInt(price);
 		console.log(price);
+		
+		var totalPrice = plus * price;
+		console.log(plus*price);
 		
 	});
 	
@@ -165,7 +177,7 @@ $().ready(function(){
 											</div>
 										</div>
 									</td>
-									<td class="column-4" id="basketPrice">${basketDTO.basketPrice }</td>
+									<td class="column-4" id="basketPrice">${basketDTO.basketPrice }원</td>
 									<td class="column-5" id="totalPrice">$ 36.00</td>
 								</tr>
 							</c:forEach>
