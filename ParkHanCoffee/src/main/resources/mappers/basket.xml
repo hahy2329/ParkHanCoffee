@@ -18,5 +18,16 @@
 	
 	</insert>
 	
+	<select id="getMyCartInfo" parameterType="String" resultType="BasketDTO">
+	
+		SELECT 
+			*
+		FROM
+			BASKET
+		WHERE
+			HUMAN_ID = #{humanId}
+	
+	</select>
+	
 	
 </mapper>

@@ -43,7 +43,7 @@
 								</c:if>
 							</li>
 
-							<li class="label1" data-label1="hot">
+							<li>
 								<a href="shoping-cart.html">ParkHan소식</a>
 								<ul class="sub-menu">
 									<li><a href="index.html">공지사항</a></li>
@@ -52,11 +52,12 @@
 									<li><a href="home-03.html">고객의 소리</a></li>
 								</ul>
 							</li>
-
-							<li>
-								<a href="blog.html">Blog</a>
-							</li>
-
+							
+							<c:if test="${sessionScope.humanId ne null }">
+								<li>
+									<a href="${contextPath }/basket/myCart?humanId=${sessionScope.humanId}">장바구니</a>
+								</li>
+							</c:if>
 							<li>
 								<a href="about.html">About</a>
 							</li>

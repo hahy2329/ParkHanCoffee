@@ -19,4 +19,9 @@ public class BasketServiceImpl implements BasketService {
 		
 	}
 
+	@Override
+	public BasketDTO getMyCartInfo(String humanId) throws Exception {
+		return basketDAO.getMyCartInfo(humanId);
+	}
+
 }
