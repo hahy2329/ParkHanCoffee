@@ -13,18 +13,17 @@
 
 $().ready(function(){
 	
-	$("#minus").click(function(){
+	
+	$("[name=minus]").click(function(){
 		
 		
 		
-			var minus = $("#num-product1").val();
+			var minus = $("[name=num-product1]").val();
 			minus = parseInt(minus);
 			console.log(minus);
+		
 			
-			
-			
-			
-			var price = $("#test_body td").eq(3).text(); //eq()는 인덱스로 해당 요소를 찾는 것. 첫 시작은 인덱스 0부터 시작!
+			var price = $("[name=basketPrice]").text();
 			price = parseInt(price);
 			console.log(price);
 			
@@ -32,26 +31,26 @@ $().ready(function(){
 			var totalPrice = minus * price;
 			
 			
-			$("#test_body td").eq(4).text(totalPrice + "원");
+			$("[name=totalPrice]").text(totalPrice + "원");
 			
 			
 	});
 	
 	
-	$("#plus").click(function(){
+	$("[name=plus]").click(function(){
 		
-		var plus = $("#num-product1").val();
+		var plus = $("[name=num-product1]").val();
 		plus = parseInt(plus);
 		console.log(plus);
 		
+		var price1 = $("[name=basketPrice]").text();
+		price1 = parseInt(price1);
+		console.log(price1);
 		
-		var price = $("#test_body td").eq(3).text();
-		price = parseInt(price);
-		console.log(price);
 		
-		var totalPrice = plus * price;
+	 	var	totalPrice1 = plus * price1;
 		
-		$("#test_body td").eq(4).text(totalPrice + "원");
+		$("[name=totalPrice]").text(totalPrice1 + "원");
 		
 		
 	});
@@ -161,7 +160,7 @@ $().ready(function(){
 								</tr>
 								
 							<c:forEach var="basketDTO" items="${basketList }">
-								<tr class="table_row" id="test_body">
+								<tr class="table_row" name="test_body">
 									<td class="column-1">
 										<div class="how-itemcart1">
 											<img src="${contextPath }/ParkHanShop/thumbnails?images=${basketDTO.basketImage}" width="60" height="80" alt="IMG">
@@ -170,19 +169,23 @@ $().ready(function(){
 									<td class="column-2">${basketDTO.basketName }</td>
 									<td class="column-3">
 										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" id="minus">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" id="minus" name="minus">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
-
+										
 											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product1" name="num-product1" value="0">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="plus">
+										
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="plus" name="plus">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 										</div>
 									</td>
-									<td class="column-4" id="basketPrice">${basketDTO.basketPrice }원</td>
-									<td class="column-5" id="totalPrice">0원</td>
+									
+										<td class="column-4" id="basketPrice" name="basketPrice">${basketDTO.basketPrice }원</td>
+									
+									
+										<td class="column-5" id="totalPrice" name="totalPrice">0원</td>
+									
 								</tr>
 							</c:forEach>
 							</table>
