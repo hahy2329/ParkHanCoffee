@@ -146,4 +146,23 @@ public class HumanController {
 		
 		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
 	}
+	
+	@GetMapping("/logout")
+	public ResponseEntity<Object> logout(HttpServletRequest request) throws Exception{
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		String message = "<script>";
+		message +="alert('정상적으로 로그아웃 되었습니다.');";
+		message +="location.href='" + request.getContextPath() + "/';";
+		message +="</script>";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
+		
+		
+	}
 }

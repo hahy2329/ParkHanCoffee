@@ -48,7 +48,7 @@
 							마이페이지
 						</a>
 						
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="${contextPath }/human/logout" class="flex-c-m trans-04 p-lr-25">
 							로그아웃
 						</a>
 					</div>

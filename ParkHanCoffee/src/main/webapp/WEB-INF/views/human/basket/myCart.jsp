@@ -16,44 +16,45 @@ $().ready(function(){
 	$("#minus").click(function(){
 		
 		
-		var minus = $("#num-product1").val();
-		minus = parseInt(minus);
 		
-		
-		var price = $("#test_body td").eq(3).text(); //eq()는 인덱스로 해당 요소를 찾는 것. 첫 시작은 인덱스 0부터 시작!
-		price = parseInt(price);
-		
-		
-		
-		var totalPrice = minus * price;
-		
-		
-		$("#test_body td").eq(4).text(totalPrice + "원");
-		
+			var minus = $("#num-product1").val();
+			minus = parseInt(minus);
+			console.log(minus);
+			
+			
+			
+			
+			var price = $("#test_body td").eq(3).text(); //eq()는 인덱스로 해당 요소를 찾는 것. 첫 시작은 인덱스 0부터 시작!
+			price = parseInt(price);
+			console.log(price);
+			
+			
+			var totalPrice = minus * price;
+			
+			
+			$("#test_body td").eq(4).text(totalPrice + "원");
+			
+			
 	});
+	
 	
 	$("#plus").click(function(){
 		
 		var plus = $("#num-product1").val();
 		plus = parseInt(plus);
-		
+		console.log(plus);
 		
 		
 		var price = $("#test_body td").eq(3).text();
 		price = parseInt(price);
-		
+		console.log(price);
 		
 		var totalPrice = plus * price;
 		
 		$("#test_body td").eq(4).text(totalPrice + "원");
 		
+		
 	});
-	
-	
-	
-	
-	
-	
 });
 
 
@@ -150,7 +151,7 @@ $().ready(function(){
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
 						<div class="wrap-table-shopping-cart">
-							<table class="table-shopping-cart" id="test_body">
+							<table class="table-shopping-cart">
 								<tr class="table_head">
 									<th class="column-1">상품 이미지</th>
 									<th class="column-2">상품 이름</th>
@@ -159,8 +160,8 @@ $().ready(function(){
 									<th class="column-5">금액</th>
 								</tr>
 								
-							<c:forEach var="basketDTO" items="${basketList }">	
-								<tr class="table_row">
+							<c:forEach var="basketDTO" items="${basketList }">
+								<tr class="table_row" id="test_body">
 									<td class="column-1">
 										<div class="how-itemcart1">
 											<img src="${contextPath }/ParkHanShop/thumbnails?images=${basketDTO.basketImage}" width="60" height="80" alt="IMG">
@@ -173,7 +174,7 @@ $().ready(function(){
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product1" name="num-product1" value="1">
+											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product1" name="num-product1" value="0">
 
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="plus">
 												<i class="fs-16 zmdi zmdi-plus"></i>
