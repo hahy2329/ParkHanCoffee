@@ -13,46 +13,55 @@
 
 $().ready(function(){
 	
+	$("[name=productName]").each(function(index, element){
+		
+		console.log($("[name=productName]").eq(index).text());
+		console.log("안녕");
+		
+	});//연습
 	
-	$("[name=minus]").click(function(){
-		
-		
-		
-			var minus = $("[name=num-product1]").val();
+	
+	$("[name=minus]").each(function(index, element){
+		$("[name=minus]").eq(index).click(function(){
+	
+			var minus = $("[name=num-product1]").eq(index).val();
 			minus = parseInt(minus);
 			console.log(minus);
-		
-			
-			var price = $("[name=basketPrice]").text();
+				
+					
+			var price = $("[name=basketPrice]").eq(index).text();
 			price = parseInt(price);
 			console.log(price);
-			
-			
+					
+					
 			var totalPrice = minus * price;
+					
+					
+			$("[name=totalPrice]").eq(index).text(totalPrice + "원");
+				
 			
-			
-			$("[name=totalPrice]").text(totalPrice + "원");
-			
-			
+		});
 	});
 	
-	
-	$("[name=plus]").click(function(){
+	$("[name=plus]").each(function(index,element){
+		$("[name=plus]").eq(index).click(function(){
 		
-		var plus = $("[name=num-product1]").val();
-		plus = parseInt(plus);
-		console.log(plus);
+			var plus = $("[name=num-product1]").eq(index).val();
+			plus = parseInt(plus);
+			console.log(plus);
+				
+			var price1 = $("[name=basketPrice]").eq(index).text();
+			price1 = parseInt(price1);
+			console.log(price1);
+				
+				
+			var totalPrice1 = plus * price1;
+				
+			$("[name=totalPrice]").eq(index).text(totalPrice1 + "원");
+			
 		
-		var price1 = $("[name=basketPrice]").text();
-		price1 = parseInt(price1);
-		console.log(price1);
 		
-		
-	 	var	totalPrice1 = plus * price1;
-		
-		$("[name=totalPrice]").text(totalPrice1 + "원");
-		
-		
+		});
 	});
 });
 
@@ -152,6 +161,7 @@ $().ready(function(){
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
 								<tr class="table_head">
+									<th class="column-0" align="center">번호</th>
 									<th class="column-1">상품 이미지</th>
 									<th class="column-2">상품 이름</th>
 									<th class="column-3">상품 수량</th>
@@ -159,14 +169,15 @@ $().ready(function(){
 									<th class="column-5">금액</th>
 								</tr>
 								
-							<c:forEach var="basketDTO" items="${basketList }">
+							<c:forEach var="basketDTO" items="${basketList }" varStatus="status">
 								<tr class="table_row" name="test_body">
+									<td class="column-0" name="index" align="center">${status.count }</td>
 									<td class="column-1">
 										<div class="how-itemcart1">
 											<img src="${contextPath }/ParkHanShop/thumbnails?images=${basketDTO.basketImage}" width="60" height="80" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2">${basketDTO.basketName }</td>
+									<td class="column-2" name="productName">${basketDTO.basketName }</td>
 									<td class="column-3">
 										<div class="wrap-num-product flex-w m-l-auto m-r-0">
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" id="minus" name="minus">

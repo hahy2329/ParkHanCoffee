@@ -24,6 +24,7 @@ public class BasketController {
 		
 		ModelAndView mv = new ModelAndView();
 		List<BasketDTO> basketList = basketService.getMyCartInfo(humanId);
+		
 		mv.addObject("basketList", basketList);
 		mv.setViewName("/basket/myCart");
 		
