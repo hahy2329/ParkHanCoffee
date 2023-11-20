@@ -193,12 +193,8 @@ $().ready(function(){
 											</div>
 										</div>
 									</td>
-									
-										<td class="column-4" id="basketPrice" name="basketPrice">${basketDTO.basketPrice }원</td>
-									
-									
-										<td class="column-5" id="totalPrice" name="totalPrice">0원</td>
-									
+									<td class="column-4" id="basketPrice" name="basketPrice">${basketDTO.basketPrice }원</td>
+									<td class="column-5" id="totalPrice" name="totalPrice">0원</td>
 								</tr>
 							</c:forEach>
 						</c:if>
@@ -207,9 +203,8 @@ $().ready(function(){
 								<td colspan="6" align="center"><strong>존재하지 않습니다.</strong></td>
 							</tr>
 						</c:if>
-							</table>
-						</div>
-
+					</table>
+				</div>
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 							<div class="flex-w flex-m m-r-20 m-tb-5">
 								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="쿠폰 입력">
