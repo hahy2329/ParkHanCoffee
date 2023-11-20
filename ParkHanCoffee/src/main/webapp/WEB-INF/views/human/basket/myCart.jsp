@@ -11,6 +11,9 @@
 <script>
 
 
+var productSumPrice = 0;
+
+
 $().ready(function(){
 	
 	$("[name=productName]").each(function(index, element){
@@ -39,6 +42,18 @@ $().ready(function(){
 					
 			$("[name=totalPrice]").eq(index).text(totalPrice + "원");
 			
+			var totalPriceZero = $("[name=totalPrice]").eq(index).text();
+			totalPriceZero = parseInt(totalPriceZero);
+			
+			
+			if(totalPriceZero == 0){
+				$("[name=totalPrice]").eq(index).text(0 + "원");
+			}
+			
+			if(minus == 0){
+				$("[name=totalPrice]").eq(index).text(0 + "원");
+			}
+			
 		});
 	});
 	
@@ -57,6 +72,9 @@ $().ready(function(){
 			var totalPrice1 = plus * price1;
 			
 			$("[name=totalPrice]").eq(index).text(totalPrice1 + "원");
+			
+			
+			
 			
 		});
 	});
@@ -186,7 +204,7 @@ $().ready(function(){
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 										
-											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product1" name="num-product1" value="0">
+											<input class="mtext-104 cl3 txt-center num-product" type="number" id="num-product1" name="num-product1" value="0" readonly="readonly">
 										
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="plus" name="plus">
 												<i class="fs-16 zmdi zmdi-plus"></i>
@@ -198,9 +216,9 @@ $().ready(function(){
 								</tr>
 							</c:forEach>
 						</c:if>
-						<c:if test="${basketList ne null }">
+						<c:if test="${basketList eq null }">
 							<tr align="center">
-								<td colspan="6" align="center"><strong>존재하지 않습니다.</strong></td>
+								<td colspan="6" align="center"><strong>상품이 존재하지 않습니다.</strong></td>
 							</tr>
 						</c:if>
 					</table>
