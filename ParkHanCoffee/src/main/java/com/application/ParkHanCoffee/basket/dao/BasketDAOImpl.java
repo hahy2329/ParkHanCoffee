@@ -25,4 +25,10 @@ public class BasketDAOImpl implements BasketDAO {
 		return sqlSession.selectList("basket.getMyCartInfo" , humanId);
 	}
 
+	@Override
+	public void myCartReset(String humanId) throws Exception {
+		sqlSession.delete("basket.myCartReset", humanId);
+		
+	}
+
 }

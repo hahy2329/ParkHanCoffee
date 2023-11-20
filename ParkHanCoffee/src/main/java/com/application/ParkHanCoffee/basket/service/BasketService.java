@@ -8,4 +8,5 @@ public interface BasketService {
 	
 	public void insertProductInfo(BasketDTO basketDTO) throws Exception;
 	public List<BasketDTO> getMyCartInfo(String humanId) throws Exception;
+	public void myCartReset(String humanId) throws Exception;
 }

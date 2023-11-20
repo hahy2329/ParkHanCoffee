@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	
+
 
 $().ready(function(){
 	
@@ -38,7 +38,6 @@ $().ready(function(){
 					
 					
 			$("[name=totalPrice]").eq(index).text(totalPrice + "원");
-				
 			
 		});
 	});
@@ -56,13 +55,15 @@ $().ready(function(){
 				
 				
 			var totalPrice1 = plus * price1;
-				
+			
 			$("[name=totalPrice]").eq(index).text(totalPrice1 + "원");
 			
-		
-		
 		});
 	});
+	
+	
+	
+	
 });
 
 
@@ -232,8 +233,8 @@ $().ready(function(){
 							</div>
 
 							<div class="size-209">
-								<span class="mtext-110 cl2">
-									$79.65
+								<span class="mtext-110 cl2" name="mtext-110">
+									0원
 								</span>
 							</div>
 						</div>
@@ -273,12 +274,13 @@ $().ready(function(){
 										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
 									</div>
 									
+									<a href="${contextPath }basket/basket/myCartReset?humanId=${sessionScope.humanId}">
 									<div class="flex-w">
 										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
 											장바구니 초기화
 										</div>
 									</div>
-										
+									</a>	
 								</div>
 							</div>
 						</div>
