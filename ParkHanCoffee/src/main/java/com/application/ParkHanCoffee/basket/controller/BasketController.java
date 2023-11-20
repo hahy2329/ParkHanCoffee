@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +40,16 @@ public class BasketController {
 	public ResponseEntity<Object> myCartReset(String humanId, HttpServletRequest request) throws Exception{
 		
 		basketService.myCartReset(humanId);
+		
+		String message = "<script>";
+		message += "alert('장바구니 초기화 완료!');";
+		message +="location.href='" + request.getContextPath() + "/';";
+		message +="</script>";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
 		
 		
 	}

@@ -29,5 +29,12 @@
 	
 	</select>
 	
+	<delete id="myCartReset" parameterType="String">
+		DELETE FROM BASKET
+		
+		WHERE 
+			HUMAN_ID = #{humanId}
+	
+	</delete>
 	
 </mapper>

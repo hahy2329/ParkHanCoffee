@@ -170,6 +170,7 @@ $().ready(function(){
 									<th class="column-5">금액</th>
 								</tr>
 								
+						<c:if test="${basketList ne null }">
 							<c:forEach var="basketDTO" items="${basketList }" varStatus="status">
 								<tr class="table_row" name="test_body">
 									<td class="column-0" name="index" align="center">${status.count }</td>
@@ -200,6 +201,12 @@ $().ready(function(){
 									
 								</tr>
 							</c:forEach>
+						</c:if>
+						<c:if test="${basketList ne null }">
+							<tr align="center">
+								<td colspan="6" align="center"><strong>존재하지 않습니다.</strong></td>
+							</tr>
+						</c:if>
 							</table>
 						</div>
 
@@ -274,7 +281,7 @@ $().ready(function(){
 										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
 									</div>
 									
-									<a href="${contextPath }basket/basket/myCartReset?humanId=${sessionScope.humanId}">
+									<a href="${contextPath }/basket/myCartReset?humanId=${sessionScope.humanId}">
 									<div class="flex-w">
 										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
 											장바구니 초기화
