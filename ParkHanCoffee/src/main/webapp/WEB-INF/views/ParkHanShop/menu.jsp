@@ -23,7 +23,7 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
+							<li>
 								<a href="index.html">Home</a>
 								<ul class="sub-menu">
 									<li><a href="index.html">브랜드</a></li>
@@ -32,7 +32,7 @@
 								</ul>
 							</li>
 
-							<li>
+							<li class="active-menu">
 								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
 								<c:if test="${sessionScope.adminId ne null }">
 									<ul class="sub-menu">
@@ -454,7 +454,7 @@
 						
 						<a href="${contextPath }/ParkHanShop/shoppingBasket?coffeeId=${productDTO.coffeeId}&humanId=${sessionScope.humanId}">
 						<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4">
-							장바구니
+							카트담기
 						</div>
 						</a>
 					</div>

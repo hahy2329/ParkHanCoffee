@@ -113,7 +113,7 @@ $().ready(function(){
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
+							<li>
 								<a href="index.html">Home</a>
 								<ul class="sub-menu">
 									<li><a href="index.html">브랜드</a></li>
@@ -143,7 +143,7 @@ $().ready(function(){
 							</li>
 							
 							<c:if test="${sessionScope.humanId ne null }">
-								<li>
+								<li class="active-menu">
 									<a href="${contextPath }/basket/myCart?humanId=${sessionScope.humanId}">장바구니</a>
 								</li>
 							</c:if>
@@ -233,15 +233,14 @@ $().ready(function(){
 					</table>
 				</div>
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-							<div class="p-t-15">
-									<a href="${contextPath }/basket/myCartReset?humanId=${sessionScope.humanId}">
-									<div class="flex-w">
-										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-											장바구니 초기화
-										</div>
-									</div>
-									</a>	
+							 <div class="flex-w flex-m m-r-20 m-tb-5" align="right">
+								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="쿠폰번호 입력">
+									
+								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+									쿠폰 입력
 								</div>
+							 </div>
+							
 						 <a href="${contextPath }/ParkHanShop/menu">		
 							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
 								메뉴보기
@@ -250,7 +249,7 @@ $().ready(function(){
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
 						<h4 class="mtext-109 cl2 p-b-30">
@@ -280,15 +279,26 @@ $().ready(function(){
 								<p class="stext-111 cl6 p-t-2">
 									${basketDTO.basketName }
 								</p>
-							</c:forEach>	
+							</c:forEach>
+							<div class="p-t-15">
+									<a href="${contextPath }/basket/myCartReset?humanId=${sessionScope.humanId}">
+									<div class="flex-w">
+										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
+											장바구니 초기화
+										</div>
+									</div>
+									</a>	
+							</div>	
 								
 							</div>
 						</div>
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" id="buy">
 							구매하기
 						</button>
 					</div>
+					
 				</div>
+				
 			</div>
 		</div>
 	</form>
