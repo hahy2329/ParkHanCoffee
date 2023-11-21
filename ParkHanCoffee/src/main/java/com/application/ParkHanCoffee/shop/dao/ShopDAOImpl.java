@@ -24,4 +24,9 @@ public class ShopDAOImpl implements ShopDAO {
 		return sqlSession.selectOne("shop.getProductInfo", coffeeId);
 	}
 
+	@Override
+	public String checkCouponNumber(String couponNumber) throws Exception {
+		return sqlSession.selectOne("shop.checkCouponNumber", couponNumber);
+	}
+
 }

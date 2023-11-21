@@ -24,4 +24,18 @@ public class ShopServiceImpl implements ShopService {
 		return shopDAO.getProductInfo(coffeeId);
 	}
 
+	@Override
+	public boolean checkCouponNumber(String couponNumber) throws Exception {
+		boolean check = false;
+		
+		if(shopDAO.checkCouponNumber(couponNumber) != null) {
+			
+			check = true;
+			return check;
+		}else {
+			return check;
+		}
+		
+	}
+
 }

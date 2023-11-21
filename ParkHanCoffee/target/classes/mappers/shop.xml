@@ -20,5 +20,17 @@
 		WHERE
 			COFFEE_ID = #{coffeeId}
 	</select>
+	
+	<select id="checkCouponNumber" parameterType="String">
+		
+		SELECT
+			*
+		FROM 
+			COUPON
+		WHERE
+			COUPON_NUMBER = #{couponNumber} AND COUPON_EXISTENCE ='미사용'
+	
+	
+	</select>
 
 </mapper>

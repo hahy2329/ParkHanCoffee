@@ -8,4 +8,5 @@ public interface ShopService {
 
 	public List<ProductDTO> getProductList() throws Exception;
 	public ProductDTO getProductInfo(long coffeeId) throws Exception;
+	public boolean checkCouponNumber(String couponNumber) throws Exception;
 }
