@@ -91,22 +91,6 @@ $().ready(function(){
 		});
 	});
 	
-	$("#couponClick").click(function(){
-		
-		$.ajax(function(){
-			
-			
-			
-			
-		});
-		
-		
-		
-	});
-	
-	
-	
-	
 });
 
 
@@ -249,16 +233,20 @@ $().ready(function(){
 					</table>
 				</div>
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-							<div class="flex-w flex-m m-r-20 m-tb-5">
-								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="쿠폰 입력">	
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" id="couponClick">
-									입력
+							<div class="p-t-15">
+									<a href="${contextPath }/basket/myCartReset?humanId=${sessionScope.humanId}">
+									<div class="flex-w">
+										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
+											장바구니 초기화
+										</div>
+									</div>
+									</a>	
 								</div>
-							</div>
-
+						 <a href="${contextPath }/ParkHanShop/menu">		
 							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
 								메뉴보기
 							</div>
+						 </a>
 						</div>
 					</div>
 				</div>
@@ -268,14 +256,12 @@ $().ready(function(){
 						<h4 class="mtext-109 cl2 p-b-30">
 							총 주문내역
 						</h4>
-
 						<div class="flex-w flex-t bor12 p-b-13">
 							<div class="size-208">
 								<span class="stext-110 cl2">
 									총 금액:
 								</span>
 							</div>
-
 							<div class="size-209">
 								<span class="mtext-110 cl2" name="mtext-110">
 									0원
@@ -289,22 +275,13 @@ $().ready(function(){
 									상품목록:
 								</span>
 							</div>
-
 							<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
 							<c:forEach var="basketDTO" items="${basketList }">
 								<p class="stext-111 cl6 p-t-2">
 									${basketDTO.basketName }
 								</p>
 							</c:forEach>	
-								<div class="p-t-15">
-									<a href="${contextPath }/basket/myCartReset?humanId=${sessionScope.humanId}">
-									<div class="flex-w">
-										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-											장바구니 초기화
-										</div>
-									</div>
-									</a>	
-								</div>
+								
 							</div>
 						</div>
 						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
