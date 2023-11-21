@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.application.ParkHanCoffee.coupon.dto.CouponDTO;
 import com.application.ParkHanCoffee.product.dto.ProductDTO;
 
 @Repository
@@ -25,8 +26,8 @@ public class ShopDAOImpl implements ShopDAO {
 	}
 
 	@Override
-	public String checkCouponNumber(String couponNumber) throws Exception {
-		return sqlSession.selectOne("shop.checkCouponNumber", couponNumber);
+	public String checkCouponNumber(CouponDTO couponDTO) throws Exception {
+		return sqlSession.selectOne("shop.checkCouponNumber", couponDTO);
 	}
 
 }

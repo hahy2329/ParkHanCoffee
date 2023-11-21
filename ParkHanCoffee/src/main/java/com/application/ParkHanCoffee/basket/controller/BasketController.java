@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.application.ParkHanCoffee.basket.dto.BasketDTO;
 import com.application.ParkHanCoffee.basket.service.BasketService;
+import com.application.ParkHanCoffee.coupon.dto.CouponDTO;
 import com.application.ParkHanCoffee.shop.service.ShopService;
 
 @Controller
@@ -60,12 +61,12 @@ public class BasketController {
 	}
 	
 	@GetMapping("/couponInput")
-	public ResponseEntity<String> couponInput(String couponNumber) throws Exception{
+	public ResponseEntity<String> couponInput(CouponDTO couponDTO) throws Exception{
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
-		if(shopService.checkCouponNumber(couponNumber)) {
+		if(shopService.checkCouponNumber(couponDTO)) {
 			
 			return new ResponseEntity<String>("checked", responseHeaders, HttpStatus.OK);
 			

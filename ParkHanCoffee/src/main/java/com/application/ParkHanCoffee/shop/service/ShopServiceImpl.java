@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.application.ParkHanCoffee.coupon.dto.CouponDTO;
 import com.application.ParkHanCoffee.product.dto.ProductDTO;
 import com.application.ParkHanCoffee.shop.dao.ShopDAO;
 
@@ -25,10 +26,10 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-	public boolean checkCouponNumber(String couponNumber) throws Exception {
+	public boolean checkCouponNumber(CouponDTO couponDTO) throws Exception {
 		boolean check = false;
 		
-		if(shopDAO.checkCouponNumber(couponNumber) != null) {
+		if(shopDAO.checkCouponNumber(couponDTO) != null) {
 			
 			check = true;
 			return check;

@@ -21,7 +21,7 @@
 			COFFEE_ID = #{coffeeId}
 	</select>
 	
-	<select id="checkCouponNumber" parameterType="String">
+	<select id="checkCouponNumber" parameterType="CouponDTO" resultType="CouponDTO">
 		
 		SELECT
 			*

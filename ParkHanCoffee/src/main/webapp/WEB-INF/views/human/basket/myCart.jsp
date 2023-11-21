@@ -103,18 +103,20 @@ $().ready(function(){
 			success : function(data){
 				if(data == "checked"){
 					
+					alert("쿠폰 적용 완료!");
+					
+					var discountProductSumPrice = $("[name=mtext-110]").text();
+					discountProductSumPrice = parseInt(discountProductSumPrice);
+					discountProductSumPrice = discountProductSumPrice * 10/100;
+					$("[name=mtext-110]").text(discountProductSumPrice);
+					
 				}else{
 					
+					alert("존재하지 않거나 이미 사용된 쿠폰입니다.");
+					
 				}
-				
-				
 			}
-			
-			
-			
 		});
-		
-		
 	});
 	
 });
@@ -262,8 +264,9 @@ $().ready(function(){
 						<p><strong>쿠폰 입력 시, 상품 수량을 선택 후 이용해 주시길 바랍니다.</strong></p>
 							 <div class="flex-w flex-m m-r-20 m-tb-5" align="right">
 								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" id="coupon" name="coupon" placeholder="쿠폰번호 입력">
+								
 									
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" id="couponInput">
+								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
 									쿠폰 입력
 								</div>
 							 </div>
