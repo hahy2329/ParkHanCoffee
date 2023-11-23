@@ -148,8 +148,7 @@ $().ready(function(){
 				if(data == "successful"){
 					
 					alert("정상적으로 구매가 완료되었습니다.");
-					var url = "${contextPath}";
-					url += "/";
+					var url = "${contextPath}/";
 					location.href = url;
 					
 				}else{

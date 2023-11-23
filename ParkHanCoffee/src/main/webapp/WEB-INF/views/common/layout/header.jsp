@@ -51,6 +51,10 @@
 						<a href="${contextPath }/human/logout" class="flex-c-m trans-04 p-lr-25">
 							로그아웃
 						</a>
+						
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							${sessionScope.point }P
+						</a>
 					</div>
 					</c:if>
 					

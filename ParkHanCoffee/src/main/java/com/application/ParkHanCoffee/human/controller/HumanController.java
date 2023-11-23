@@ -130,6 +130,7 @@ public class HumanController {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("humanId", humanInfo.getHumanId());
+			session.setAttribute("point", humanInfo.getPoint());
 			session.setMaxInactiveInterval(3600);
 		}
 		
