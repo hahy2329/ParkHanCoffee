@@ -98,7 +98,7 @@ public class ShopController {
 	}
 	
 	@PostMapping("/productBuy")
-	public ResponseEntity<String> productBuy(@RequestParam("productBuy") int price, @RequestParam("humanId") String humanId) throws Exception{
+	public ResponseEntity<String> productBuy(@RequestParam("price") int price, @RequestParam("humanId") String humanId) throws Exception{
 		
 		shopService.insertSalesPrice(price);
 		
@@ -107,7 +107,7 @@ public class ShopController {
 		
 		HashMap<String, Object> humanPoint = new HashMap<String, Object>();
 		humanPoint.put("humanId", humanId);
-		humanPoint.put("price",price);
+		humanPoint.put("point",point);
 		
 		
 		humanService.updateSavePoint(humanPoint);

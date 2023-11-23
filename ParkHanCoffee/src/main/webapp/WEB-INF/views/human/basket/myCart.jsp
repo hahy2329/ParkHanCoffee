@@ -12,6 +12,7 @@
 
 
 var productSumPrice = 0;
+var session='<%=session.getAttribute("humanId")%>';
 
 
 $().ready(function(){
@@ -141,7 +142,7 @@ $().ready(function(){
 		$.ajax({
 			
 			type : "post",
-			url : "${contextPath}/ParkHanShop/productBuy?price="+productBuyPrice + "&humanId=" + "${sessionScope.humanId}",
+			url : "${contextPath}/ParkHanShop/productBuy?price="+productBuyPrice + "&humanId=" + session,
 			success : function(data){
 				
 				if(data == "successful"){
