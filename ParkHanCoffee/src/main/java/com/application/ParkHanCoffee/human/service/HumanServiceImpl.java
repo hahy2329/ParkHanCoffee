@@ -1,5 +1,7 @@
 package com.application.ParkHanCoffee.human.service;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -44,8 +46,8 @@ public class HumanServiceImpl implements HumanService {
 	}
 
 	@Override
-	public void insertSavePoint(int point) throws Exception {
-		// TODO Auto-generated method stub
+	public void updateSavePoint(HashMap<String, Object> humanPoint) throws Exception {
+		humanDAO.updateSavePoint(humanPoint);
 		
 	}
 

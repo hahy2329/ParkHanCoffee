@@ -1,5 +1,7 @@
 package com.application.ParkHanCoffee.human.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,6 +36,13 @@ public class HumanDAOImpl implements HumanDAO {
 	@Override
 	public void registerHuman(HumanDTO humanDTO) throws Exception {
 		 sqlSession.insert("human.registerHuman", humanDTO);
+		
+	}
+
+
+	@Override
+	public void updateSavePoint(HashMap<String, Object> humanPoint) throws Exception {
+		sqlSession.update("human.updateSavePoint", humanPoint);
 		
 	}
 

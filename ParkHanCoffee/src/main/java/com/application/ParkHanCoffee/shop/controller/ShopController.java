@@ -2,6 +2,7 @@ package com.application.ParkHanCoffee.shop.controller;
 
 import java.io.File;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -97,12 +98,24 @@ public class ShopController {
 	}
 	
 	@PostMapping("/productBuy")
-	public ResponseEntity<String> productBuy(@RequestParam("productBuy") int price) throws Exception{
+	public ResponseEntity<String> productBuy(@RequestParam("productBuy") int price, @RequestParam("humanId") String humanId) throws Exception{
 		
 		shopService.insertSalesPrice(price);
 		
 		int point = (price * 5/100);
-		humanService.insertSavePoint(point);
+		System.out.println(humanId);
+		
+		HashMap<String, Object> humanPoint = new HashMap<String, Object>();
+		humanPoint.put("humanId", humanId);
+		humanPoint.put("price",price);
+		
+		
+		humanService.updateSavePoint(humanPoint);
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		return new ResponseEntity<String>("successful", responseHeaders, HttpStatus.OK);
 		
 		
 		

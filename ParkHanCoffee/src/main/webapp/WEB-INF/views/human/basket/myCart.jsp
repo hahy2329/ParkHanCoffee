@@ -141,7 +141,7 @@ $().ready(function(){
 		$.ajax({
 			
 			type : "post",
-			url : "${contextPath}/ParkHanShop/productBuy?price="+productBuyPrice,
+			url : "${contextPath}/ParkHanShop/productBuy?price="+productBuyPrice + "&humanId=" + "${sessionScope.humanId}",
 			success : function(data){
 				
 				if(data == "successful"){

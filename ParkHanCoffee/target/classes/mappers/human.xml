@@ -51,6 +51,16 @@
 	
 	
 	</insert>
-
+	
+	<insert id="updateSavePoint" parameterType="HashMap">
+		
+		UPDATE 
+			HUMAN
+		SET
+			POINT = POINT + #{point} 
+		WHERE
+			HUMAN_ID = #{humanId}
+	
+	</insert>
 
 </mapper>
