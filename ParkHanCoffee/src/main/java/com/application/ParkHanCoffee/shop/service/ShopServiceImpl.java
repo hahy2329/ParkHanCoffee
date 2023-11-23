@@ -26,16 +26,22 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-	public boolean checkCouponNumber(CouponDTO couponDTO) throws Exception {
+	public boolean checkCouponNumber(String couponNumber) throws Exception {
 		boolean check = false;
 		
-		if(shopDAO.checkCouponNumber(couponDTO) != null) {
+		if(shopDAO.checkCouponNumber(couponNumber) != null) {
 			
 			check = true;
 			return check;
 		}else {
 			return check;
 		}
+		
+	}
+
+	@Override
+	public void insertSalesPrice(int price) throws Exception {
+		shopDAO.insertSalesPrice(price);
 		
 	}
 

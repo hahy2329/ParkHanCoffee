@@ -61,12 +61,12 @@ public class BasketController {
 	}
 	
 	@GetMapping("/couponInput")
-	public ResponseEntity<String> couponInput(CouponDTO couponDTO) throws Exception{
+	public ResponseEntity<String> couponInput(String couponNumber) throws Exception{
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
-		if(shopService.checkCouponNumber(couponDTO)) {
+		if(shopService.checkCouponNumber(couponNumber)) {
 			
 			return new ResponseEntity<String>("checked", responseHeaders, HttpStatus.OK);
 			

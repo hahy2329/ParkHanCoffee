@@ -93,8 +93,14 @@ $().ready(function(){
 	
 	$("#couponInput").click(function(){
 		
+		$(".answer").empty();
 		
 		var coupon = $("#coupon").val();
+		
+		if(coupon == null){
+			alert('쿠폰 번호를 입력해주세요.');
+			
+		}
 		
 		$.ajax({
 			
@@ -107,17 +113,57 @@ $().ready(function(){
 					
 					var discountProductSumPrice = $("[name=mtext-110]").text();
 					discountProductSumPrice = parseInt(discountProductSumPrice);
-					discountProductSumPrice = discountProductSumPrice * 10/100;
-					$("[name=mtext-110]").text(discountProductSumPrice);
+					discountProductSumPrice = discountProductSumPrice - (discountProductSumPrice * 10/100);
+					$("[name=mtext-110]").text(discountProductSumPrice + "원");
+					
+					$("#couponInput").remove();
+					$("#coupon").remove();
+					$(".answer").append("<p style='color: green;'>"+"쿠폰 인증이 확인되었습니다." + "</p>");
+					
+					
 					
 				}else{
 					
 					alert("존재하지 않거나 이미 사용된 쿠폰입니다.");
-					
+					$(".answer").append("<p style='color: red;'>" + "쿠폰 번호를 확인해주세요." + "</p>");
 				}
 			}
 		});
 	});
+	
+	
+	
+	$("#buy").click(function(){
+		
+		var productBuyPrice = $("[name=mtext-110]").text();
+		productBuyPrice = parseInt(productBuyPrice);
+		
+		$.ajax({
+			
+			type : "post",
+			url : "${contextPath}/ParkHanShop/productBuy?price="+productBuyPrice,
+			success : function(data){
+				
+				if(data == "successful"){
+					
+					alert("정상적으로 구매가 완료되었습니다.");
+					var url = "${contextPath}";
+					url += "/";
+					location.href = url;
+					
+				}else{
+					
+					alert("소유하고 계신 금액이 부족하십니다.");
+					return;
+				}
+				
+				
+			}	
+			
+		});
+		
+	});
+	
 	
 });
 
@@ -265,10 +311,12 @@ $().ready(function(){
 							 <div class="flex-w flex-m m-r-20 m-tb-5" align="right">
 								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" id="coupon" name="coupon" placeholder="쿠폰번호 입력">
 								
-									
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+								
+								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" id="couponInput">
 									쿠폰 입력
 								</div>
+								
+								<p class="answer"></p>
 							 </div>
 							
 						 <a href="${contextPath }/ParkHanShop/menu">		

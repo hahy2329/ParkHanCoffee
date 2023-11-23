@@ -43,4 +43,10 @@ public class HumanServiceImpl implements HumanService {
 		
 	}
 
+	@Override
+	public void insertSavePoint(int point) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

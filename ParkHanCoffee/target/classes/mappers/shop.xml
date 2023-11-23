@@ -21,16 +21,27 @@
 			COFFEE_ID = #{coffeeId}
 	</select>
 	
-	<select id="checkCouponNumber" parameterType="CouponDTO" resultType="CouponDTO">
+	<select id="checkCouponNumber" parameterType="String" resultType="String">
 		
 		SELECT
-			*
+			COUPON_NUMBER
 		FROM 
 			COUPON
 		WHERE
-			COUPON_NUMBER = #{couponNumber} AND COUPON_EXISTENCE ='미사용'
+			COUPON_NUMBER = #{couponNumber} AND COUPON_EXISTENCE = '미사용'
 	
 	
 	</select>
+	
+	<insert id="insertSalesPrice" parameterType="Int">
+		
+		INSERT INTO STORESALES
+		
+		VALUES(
+			#{price}
+		)
+		
+	
+	</insert>
 
 </mapper>

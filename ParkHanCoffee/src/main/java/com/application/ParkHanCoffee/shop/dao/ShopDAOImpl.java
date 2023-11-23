@@ -26,8 +26,14 @@ public class ShopDAOImpl implements ShopDAO {
 	}
 
 	@Override
-	public String checkCouponNumber(CouponDTO couponDTO) throws Exception {
-		return sqlSession.selectOne("shop.checkCouponNumber", couponDTO);
+	public String checkCouponNumber(String couponNumber) throws Exception {
+		return sqlSession.selectOne("shop.checkCouponNumber", couponNumber);
+	}
+
+	@Override
+	public void insertSalesPrice(int price) throws Exception {
+		sqlSession.insert("shop.insertSalesPrice", price);
+		
 	}
 
 }

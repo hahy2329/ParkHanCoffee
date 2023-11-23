@@ -9,5 +9,6 @@ public interface ShopDAO {
 	
 	public List<ProductDTO> getProductList() throws Exception;
 	public ProductDTO getProductInfo(long coffeeId) throws Exception;
-	public String checkCouponNumber(CouponDTO couponDTO) throws Exception;
+	public String checkCouponNumber(String couponNumber) throws Exception;
+	public void insertSalesPrice(int price) throws Exception;
 }

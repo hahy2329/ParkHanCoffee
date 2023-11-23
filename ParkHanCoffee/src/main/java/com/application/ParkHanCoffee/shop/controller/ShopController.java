@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.application.ParkHanCoffee.basket.dto.BasketDTO;
 import com.application.ParkHanCoffee.basket.service.BasketService;
+import com.application.ParkHanCoffee.human.service.HumanService;
 import com.application.ParkHanCoffee.product.dto.ProductDTO;
 import com.application.ParkHanCoffee.shop.service.ShopService;
 
@@ -36,6 +37,9 @@ public class ShopController {
 	
 	@Autowired
 	private BasketService basketService;
+	
+	@Autowired
+	private HumanService humanService;
 	
 	
 	@GetMapping("/menu")
@@ -87,6 +91,19 @@ public class ShopController {
 		message +="</script>";
 		
 		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
+		
+		
+		
+	}
+	
+	@PostMapping("/productBuy")
+	public ResponseEntity<String> productBuy(@RequestParam("productBuy") int price) throws Exception{
+		
+		shopService.insertSalesPrice(price);
+		
+		int point = (price * 5/100);
+		humanService.insertSavePoint(point);
+		
 		
 		
 		
