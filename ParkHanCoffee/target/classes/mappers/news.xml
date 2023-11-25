@@ -14,7 +14,7 @@
 					</when>
 					<otherwise>
 						SELECT
-						
+							COUNT(*)
 						FROM
 							NOTICE
 						WHERE			
@@ -26,7 +26,7 @@
 			</when>
 			<otherwise>
 				SELECT
-					
+					COUNT(*)
 				FROM
 					NOTICE
 				WHERE
@@ -39,12 +39,8 @@
 					<if test='searchKeyword.equals("content")'>
 						CONTENT LIKE CONCAT('%', #{searchWord}, '%')
 					</if>
-			
 			</otherwise>
 		</choose>
-		
-	
-	
 	</select>
 
 
