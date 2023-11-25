@@ -13,6 +13,7 @@
 		<typeAlias type="com.application.ParkHanCoffee.human.dto.HumanDTO" alias="HumanDTO"/>		
 		<typeAlias type="com.application.ParkHanCoffee.basket.dto.BasketDTO" alias="BasketDTO"/>
 		<typeAlias type="com.application.ParkHanCoffee.coupon.dto.CouponDTO" alias="CouponDTO"/>
+		<typeAlias type="com.application.ParkHanCoffee.notice.dto.NoticeDTO" alias="NoticeDTO"/>
 	</typeAliases>
 
 </configuration>

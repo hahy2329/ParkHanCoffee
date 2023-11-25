@@ -44,9 +44,9 @@
 							</li>
 
 							<li>
-								<a href="shoping-cart.html">ParkHan소식</a>
+								<a href="#">ParkHan소식</a>
 								<ul class="sub-menu">
-									<li><a href="index.html">공지사항</a></li>
+									<li><a href="${contextPath }/news/notice">공지사항</a></li>
 									<li><a href="home-02.html">이벤트</a></li>
 									<li><a href="home-03.html">FAQ</a></li>
 									<li><a href="home-03.html">고객의 소리</a></li>

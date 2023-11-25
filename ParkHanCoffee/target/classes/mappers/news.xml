@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="news">
+
+	<select id="getAllNoticeCnt" parameterType="hashmap" resultType="int">
+		<choose>
+			<when test='searchKeyword.equals("total")'>
+				<choose>
+					<when test='searchWord.equals("")'>
+						SELECT 	
+							COUNT(*)
+						FROM
+							NOTICE
+					</when>
+					<otherwise>
+						SELECT
+						
+						FROM
+							NOTICE
+						WHERE			
+							ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%') OR
+							SUBJECT LIKE CONCAT('%', #{searchWord}, '%') OR
+							CONTENT LIKE CONCAT('%', #{searchWord}, '%')
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				SELECT
+					
+				FROM
+					NOTICE
+				WHERE
+					<if test='searchKeyword.equals("adminId")'>
+						ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%')
+					</if>
+					<if test='searchKeyword.equals("subject")'>
+						SUBJECT LIKE CONCAT('%', #{searchWord}, '%')
+					</if>
+					<if test='searchKeyword.equals("content")'>
+						CONTENT LIKE CONCAT('%', #{searchWord}, '%')
+					</if>
+			
+			</otherwise>
+		</choose>
+		
+	
+	
+	</select>
+
+
+
+</mapper>
