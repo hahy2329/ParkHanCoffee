@@ -56,6 +56,24 @@ public class NewsController {
 		
 		int allBoardCnt = newsService.getAllNoticeCnt(searchMap); // map에 넣어진 값을 기준으로 전체 갯수를 가져옴
 		
+		int allPageCnt = allBoardCnt / onePageViewCnt + 1;
+		
+		if(allBoardCnt % onePageViewCnt == 0) {
+			allPageCnt --;
+			
+		}
+		
+		int startPage = (currentPageNumber - 1) / 10 * 10 +1; //스타트 페이지는 현재 페이지가 아닌 시작 페이지를 의미!
+		
+		if(startPage == 0) {
+			startPage = 1;
+		}
+		
+		int endPage = startPage + 9; // (1~10, 11 ~ 20)
+		
+		if(endPage > allPageCnt) endPage = allPageCnt;
+		
+		int startBoardIdx = (currentPageNumber - 1) * onePageViewCnt; //각 페이지의 게시판 첫 번호
 		
 	}
 	
