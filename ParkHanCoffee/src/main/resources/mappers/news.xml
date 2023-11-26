@@ -42,6 +42,59 @@
 			</otherwise>
 		</choose>
 	</select>
+	
+	<select id="getNoticeList" parameterType="hashmap" resultType="NoticeDTO">
+		<choose>
+			<when test='searchKeyword.equals("total")'>
+				<choose>
+					<when test='searchWord.equals("")'>
+						SELECT
+							*
+						FROM
+							NOTICE
+						ORDER BY
+							ENROLL_DT DESC
+						LIMIT
+							#{startBoardIdx}, #{onePageViewCnt}
+					</when>
+					<otherwise>
+						SELECT
+							*
+						FROM
+							NOTICE
+						WHERE
+							ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%') OR
+							SUBJECT LIKE CONCAT('%', #{searchWord}, '%') OR
+							CONTENT LIKE CONCAT('%', #{searchWord}, '%')
+						ORDER BY 
+							ENROLL_DT DESC
+						LIMIT
+							#{startBoardIdx}, #{onePageViewCnt}
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				SELECT 
+					*
+				FROM
+					NOTICE
+				WHERE
+					<if test='searchKeyword.equals("adminId")'>
+						ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%')
+					</if>
+					<if test='searchKeyword.equals("subject")'>
+						SUBJECT LIKE CONCAT('%', #{searchWord}, '%')
+					</if>
+					<if test='searchKeyword.equals("content")'>
+						CONTENT LIKE CONCAT('%', #{searchWord}, '%')
+					</if>
+				ORDER BY 
+					ENROLL_DT DESC
+				LIMIT
+					#{startBoardIdx}, #{onePageViewCnt}
+			</otherwise>
+		</choose>
+	</select>
 
 
 

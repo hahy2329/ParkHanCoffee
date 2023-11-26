@@ -49,12 +49,12 @@ public class NewsController {
 		
 		int currentPageNumber = Integer.parseInt(temp); // 현재 페이지를 숫자형으로 변환		
 		
-		Map<String, String> searchMap = new HashMap<String, String>();
-		searchMap.put("searchKeyword", searchKeyword);
-		searchMap.put("searchWord", searchWord);
+		Map<String, String> searchCntMap = new HashMap<String, String>();
+		searchCntMap.put("searchKeyword", searchKeyword);
+		searchCntMap.put("searchWord", searchWord);
 		//선택 란 기준값과 검색 입력 값을 map함수에 넣어줌 
 		
-		int allBoardCnt = newsService.getAllNoticeCnt(searchMap); // map에 넣어진 값을 기준으로 전체 갯수를 가져옴
+		int allBoardCnt = newsService.getAllNoticeCnt(searchCntMap); // map에 넣어진 값을 기준으로 전체 갯수를 가져옴
 		
 		int allPageCnt = allBoardCnt / onePageViewCnt + 1;
 		
@@ -74,6 +74,28 @@ public class NewsController {
 		if(endPage > allPageCnt) endPage = allPageCnt;
 		
 		int startBoardIdx = (currentPageNumber - 1) * onePageViewCnt; //각 페이지의 게시판 첫 번호
+		
+		mv.addObject("startPage", startPage);
+		mv.addObject("endPage", endPage);
+		mv.addObject("allBoardCnt", allBoardCnt);
+		mv.addObject("allPageCnt", allPageCnt);
+		mv.addObject("onePageViewCnt", onePageViewCnt);
+		mv.addObject("currentPageNumber", currentPageNumber);
+		mv.addObject("startBoardIdx", startBoardIdx);
+		mv.addObject("searchKeyword", searchKeyword);
+		mv.addObject("searchWord", searchWord);
+		
+		Map<String, Object> searchMap = new HashMap<String, Object>();
+		searchMap.put("onePageViewCnt", onePageViewCnt);
+		searchMap.put("startBoardIdx", startBoardIdx);
+		searchMap.put("searchKeyword", searchKeyword);
+		searchMap.put("searchWord", searchWord);
+		mv.addObject("noticeList", newsService.getNoticeList(searchMap));
+		
+		return mv;
+		
+		
+		
 		
 	}
 	
