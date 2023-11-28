@@ -25,4 +25,16 @@ public class NewsServiceImpl implements NewsService {
 		return newsDAO.getNoticeList(searchMap);
 	}
 
+	@Override
+	public void increaseReadCnt(long boardId) throws Exception {
+		newsDAO.increaseReadCnt(boardId);
+		
+	}
+	
+	@Override
+	public NoticeDTO getNoticeDetail(long boardId) throws Exception {
+		return newsDAO.getNoticeDetail(boardId);
+	}
+
+
 }

@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.application.ParkHanCoffee.admin.dto.AdminDTO;
 import com.application.ParkHanCoffee.admin.service.AdminService;
+import com.application.ParkHanCoffee.notice.dto.NoticeDTO;
 import com.application.ParkHanCoffee.product.dto.ProductDTO;
 
 @Controller
@@ -192,6 +193,33 @@ public class AdminController {
 		
 		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
 		
+		
+	}
+	
+	@GetMapping("/addNotice")
+	public ModelAndView addNotice() throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/admin/addNotice");
+		
+		return mv;
+		
+	}
+	
+	@PostMapping("/addNotice")
+	public ResponseEntity<Object> addNotice(NoticeDTO noticeDTO, HttpServletRequest request) throws Exception{
+		
+		adminService.addNotice(noticeDTO);
+		
+		String message = "<script>";
+		message +="alert('정상적으로 등록 되었습니다.');";
+		message +="location.href='" + request.getContextPath() + "/';";
+		message +="</script>";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		
+		return new ResponseEntity<Object>(message, responseHeaders, HttpStatus.OK);
 		
 	}
 	

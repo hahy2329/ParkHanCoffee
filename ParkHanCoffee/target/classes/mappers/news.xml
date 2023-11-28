@@ -95,5 +95,29 @@
 				</otherwise>
 			</choose>
 	</select>
+	
+	<update id="increaseReadCnt" parameterType="long">
+	
+		UPDATE
+			NOTICE
+		SET
+			READ_CNT = READ_CNT + 1
+		WHERE
+			BOARD_ID  = #{boardId}
+		
+	
+	</update>
+	
+	<select id="getNoticeDetail" parameterType="long" resultType="NoticeDTO">
+	
+		SELECT
+			*
+		FROM
+			NOTICE
+		WHERE
+			BOARD_ID = #{boardId}
+	</select>
+	
+	
 
 </mapper>

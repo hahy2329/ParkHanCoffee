@@ -52,5 +52,18 @@
 		)
 	
 	</insert>
-
+	
+	<insert id="addNotice" parameterType="NoticeDTO">
+		
+		INSERT INTO NOTICE(ADMIN_ID, SUBJECT, CONTENT)
+		
+		VALUES(
+			#{adminId},
+			#{subject},
+			#{content}
+					
+		)
+		
+	
+	</insert>
 </mapper>

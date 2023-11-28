@@ -25,4 +25,16 @@ public class NewsDAOImpl implements NewsDAO {
 		return sqlSession.selectList("news.getNoticeList", searchMap);
 	}
 
+	@Override
+	public void increaseReadCnt(long boardId) throws Exception {
+		sqlSession.update("news.increaseReadCnt", boardId);
+		
+	}
+	
+	@Override
+	public NoticeDTO getNoticeDetail(long boardId) throws Exception {
+		return sqlSession.selectOne("news.getNoticeDetail", boardId);
+	}
+
+
 }

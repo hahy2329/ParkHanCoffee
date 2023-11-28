@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.application.ParkHanCoffee.news.service.NewsService;
+import com.application.ParkHanCoffee.notice.dto.NoticeDTO;
 
 @Controller
 @RequestMapping("/news")
@@ -101,6 +103,19 @@ public class NewsController {
 		
 		
 		
+	}
+	
+	@GetMapping("/noticeDetail")
+	public ModelAndView detail(@RequestParam("boardId") long boardId) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		newsService.increaseReadCnt(boardId);
+		NoticeDTO noticeDTO = newsService.getNoticeDetail(boardId);
+		
+		mv.addObject("noticeDTO", noticeDTO);
+		mv.setViewName("/news/noticeDetail");
+		return mv;
 	}
 	
 	

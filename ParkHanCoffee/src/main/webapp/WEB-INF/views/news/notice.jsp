@@ -28,7 +28,70 @@
 
 </script>
 </head>
-<body>
+<body class="animsition">
+
+	<header class="header-v4">
+		<div class="container-menu-desktop">
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
+					
+					<!-- Logo desktop -->		
+					<a href="${contextPath }/" class="logo">
+						<img src="${contextPath }/resources/cozastore-master/images/icons/favicon.png" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li class="active-menu">
+								<a href="index.html">Home</a>
+								<ul class="sub-menu">
+									<li><a href="index.html">브랜드</a></li>
+									<li><a href="home-02.html">인사말</a></li>
+									<li><a href="home-03.html">찾아오시는 길</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="${contextPath }/ParkHanShop/menu">메뉴소개</a>
+								<c:if test="${sessionScope.adminId ne null }">
+									<ul class="sub-menu">
+										<li><a href="${contextPath }/admin/ParkHanShop/productRegistration">상품등록</a></li>
+										<li><a href="home-02.html">상품삭제</a></li>
+									</ul>
+								</c:if>
+							</li>
+
+							<li>
+								<a href="shoping-cart.html">ParkHan소식</a>
+								<ul class="sub-menu">
+									<li><a href="${contextPath }/news/notice">공지사항</a></li>
+									<li><a href="home-02.html">이벤트</a></li>
+									<li><a href="home-03.html">FAQ</a></li>
+									<li><a href="home-03.html">고객의 소리</a></li>
+								</ul>
+							</li>
+							
+							<c:if test="${sessionScope.humanId ne null }">
+								<li>
+									<a href="${contextPath }/basket/myCart?humanId=${sessionScope.humanId}">장바구니</a>
+								</li>
+							</c:if>
+							
+							<li>
+								<a href="about.html">About</a>
+							</li>
+
+							<li>
+								<a href="contact.html">Contact</a>
+							</li>
+						</ul>
+					</div>	
+				</nav>
+			</div>
+		</div>
+	
+	</header>
 
 	<form class="bg0 p-t-75 p-b-85">
 		<div class="container">
@@ -65,9 +128,9 @@
 								<tr class="table_row" align="center">
 								<c:set var="startBoardIdx" value="${startBoardIdx + 1 }"/>
 									<td class="column-1">${startBoardIdx } </td>
-									<td class="column-2">${noticeDTO.subject }</td>
+									<td class="column-2"><a href="${contextPath }/news/noticeDetail?boardId=${noticeDTO.boardId}">${noticeDTO.subject }</a></td>
 									<td class="column-3">${noticeDTO.adminId }</td>
-									<td class="column-4">${noticeDTO.enrollDt } </td>
+									<td class="column-4"><fmt:formatDate value="${noticeDTO.enrollDt }" pattern="yyyy-MM-dd"/></td>
 									<td class="column-5">${noticeDTO.readCnt }</td>
 								</tr>
 							</c:forEach>
@@ -104,7 +167,7 @@
 									검색
 								</div>
 								<c:if test="${sessionScope.adminId ne null }">
-									<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" onclick="location.href='${contextPath}/news/addNotice'">
+									<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" onclick="location.href='${contextPath}/admin/addNotice'">
 										글쓰기
 									</div>
 								</c:if>

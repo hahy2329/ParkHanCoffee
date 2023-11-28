@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.application.ParkHanCoffee.admin.dao.AdminDAO;
 import com.application.ParkHanCoffee.admin.dto.AdminDTO;
+import com.application.ParkHanCoffee.notice.dto.NoticeDTO;
 import com.application.ParkHanCoffee.product.dto.ProductDTO;
 
 @Service
@@ -27,6 +28,12 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void registrationProduct(ProductDTO productDTO) throws Exception {
 		adminDAO.registrationProduct(productDTO);
+		
+	}
+
+	@Override
+	public void addNotice(NoticeDTO noticeDTO) throws Exception {
+		adminDAO.addNotice(noticeDTO);
 		
 	}
 	

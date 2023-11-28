@@ -6,5 +6,9 @@
 		<put-attribute name="title" value="ParkHan커피"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/news/notice.jsp"></put-attribute>
 	</definition>
-
+	
+	<definition name="/news/noticeDetail" extends="baseLayout">
+		<put-attribute name="title" value="ParkHan커피"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/news/noticeDetail.jsp"></put-attribute>	
+	</definition>
 </tiles-definitions>
