@@ -26,28 +26,31 @@ public class NewsController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/news/notice");
+		
 		
 		String searchKeyword = request.getParameter("searchKeyword");
 		if(searchKeyword == null) searchKeyword = "total";
-		//선택 박스 란에 기준값이 없다면 total(전체)로!
+		//셀렉트 박스에서 (memberId, subject, content 중 택 1) 없으면 total 
+		
 		
 		String searchWord = request.getParameter("searchWord");
-		if(searchWord == null) searchKeyword = "";
-		//검색 란에 입력 값이 없다면 ""
+		if(searchWord == null) searchWord = "";
+		//검색 바에서 키워드 입력, 없으면 ""
 		
-		int onePageViewCnt = 10; // 초깃값, 한 페이지 당 10개씩 보여주기 
+		
+		int onePageViewCnt = 10; //초깃값, 한 페이지 당 10개씩 보여주기 
 		
 		if(request.getParameter("onePageViewCnt") != null) {
 			onePageViewCnt = Integer.parseInt(request.getParameter("onePageViewCnt"));
-		} //만약! 뷰 페이지 갯수를 정해놨다면 if문 안 문장을 실행 
+		} 
 		
-		String temp = request.getParameter("currentPageNumber"); // 현재 페이지
-		if(temp == null) {
+		
+		String temp = request.getParameter("currentPageNumber"); //현재 페이지 
+		if(temp ==null) {
 			temp = "1";
 		}
 		
-		int currentPageNumber = Integer.parseInt(temp); // 현재 페이지를 숫자형으로 변환		
+		int currentPageNumber = Integer.parseInt(temp);		
 		
 		Map<String, String> searchCntMap = new HashMap<String, String>();
 		searchCntMap.put("searchKeyword", searchKeyword);
@@ -58,32 +61,32 @@ public class NewsController {
 		
 		int allPageCnt = allBoardCnt / onePageViewCnt + 1;
 		
-		if(allBoardCnt % onePageViewCnt == 0) {
-			allPageCnt --;
-			
-		}
+		if(allBoardCnt % onePageViewCnt==0) allPageCnt --;
 		
-		int startPage = (currentPageNumber - 1) / 10 * 10 +1; //스타트 페이지는 현재 페이지가 아닌 시작 페이지를 의미!
+		int startPage = (currentPageNumber - 1) /10 * 10 +1;
+		//스타트 페이지 
 		
 		if(startPage == 0) {
-			startPage = 1;
+			startPage =1;
 		}
 		
-		int endPage = startPage + 9; // (1~10, 11 ~ 20)
+		
+		int endPage = startPage + 9;
+		//총 10페이지 씩 단위로 구성 예정(예) 1 ~ 10, 11~20 ...)
 		
 		if(endPage > allPageCnt) endPage = allPageCnt;
 		
-		int startBoardIdx = (currentPageNumber - 1) * onePageViewCnt; //각 페이지의 게시판 첫 번호
+		int startBoardIdx = (currentPageNumber - 1) * onePageViewCnt;
 		
-		mv.addObject("startPage", startPage);
-		mv.addObject("endPage", endPage);
-		mv.addObject("allBoardCnt", allBoardCnt);
-		mv.addObject("allPageCnt", allPageCnt);
-		mv.addObject("onePageViewCnt", onePageViewCnt);
-		mv.addObject("currentPageNumber", currentPageNumber);
-		mv.addObject("startBoardIdx", startBoardIdx);
-		mv.addObject("searchKeyword", searchKeyword);
-		mv.addObject("searchWord", searchWord);
+		mv.addObject("startPage", startPage); //스타트 페이지
+		mv.addObject("endPage", endPage); //끝 페이지
+		mv.addObject("allBoardCnt", allBoardCnt); // 전체검색결과 갯수 
+		mv.addObject("allPageCnt", allPageCnt); // 전체 페이지 수 
+		mv.addObject("onePageViewCnt", onePageViewCnt); //한 페이지에 보여질 갯수 
+		mv.addObject("currentPageNumber", currentPageNumber); //현재 페이지  
+		mv.addObject("startBoardIdx", startBoardIdx); //각 게시글에 주어지는 일련번호
+		mv.addObject("searchKeyword", searchKeyword); //검색 범위
+		mv.addObject("searchWord",searchWord); // 검색 키워드
 		
 		Map<String, Object> searchMap = new HashMap<String, Object>();
 		searchMap.put("onePageViewCnt", onePageViewCnt);
@@ -92,6 +95,7 @@ public class NewsController {
 		searchMap.put("searchWord", searchWord);
 		mv.addObject("noticeList", newsService.getNoticeList(searchMap));
 		
+		mv.setViewName("/news/notice");
 		return mv;
 		
 		

@@ -3,67 +3,67 @@
 <mapper namespace="news">
 
 	<select id="getAllNoticeCnt" parameterType="hashmap" resultType="int">
-		<choose>
-			<when test='searchKeyword.equals("total")'>
-				<choose>
-					<when test='searchWord.equals("")'>
-						SELECT 	
-							COUNT(*)
-						FROM
-							NOTICE
-					</when>
-					<otherwise>
-						SELECT
-							COUNT(*)
-						FROM
-							NOTICE
-						WHERE			
-							ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%') OR
-							SUBJECT LIKE CONCAT('%', #{searchWord}, '%') OR
+	 	<choose>
+				<when test='searchKeyword.equals("total")'>
+					<choose>
+						<when test='searchWord.equals("")'>
+							SELECT 
+								COUNT(*)
+							FROM 
+								NOTICE
+						</when>
+						<otherwise>
+							SELECT 
+								COUNT(*)
+							FROM
+								NOTICE
+							WHERE 
+								ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%') OR
+								SUBJECT LIKE CONCAT('%', #{searchWord}, '%') OR
+								CONTENT LIKE CONCAT('%', #{searchWord}, '%')
+						</otherwise>
+					</choose>
+				</when>
+				<otherwise>
+					SELECT 
+						COUNT(*)
+					FROM 
+						NOTICE
+					WHERE
+						<if test='searchKeyword.equals("adminId")'>
+							ADMIN_ID LIKE CONCAT('%',#{searchWord},'%')
+						</if>
+						<if test='searchKeyword.equals("subject")'>
+							SUBJECT LIKE CONCAT('%', #{searchWord}, '%')
+						</if>
+						<if test='searchKeyword.equals("content")'>
 							CONTENT LIKE CONCAT('%', #{searchWord}, '%')
-					</otherwise>
-				</choose>
-			</when>
-			<otherwise>
-				SELECT
-					COUNT(*)
-				FROM
-					NOTICE
-				WHERE
-					<if test='searchKeyword.equals("adminId")'>
-						ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%')
-					</if>
-					<if test='searchKeyword.equals("subject")'>
-						SUBJECT LIKE CONCAT('%', #{searchWord}, '%')
-					</if>
-					<if test='searchKeyword.equals("content")'>
-						CONTENT LIKE CONCAT('%', #{searchWord}, '%')
-					</if>
-			</otherwise>
-		</choose>
-	</select>
+						</if>
+				</otherwise>
+			</choose>
+		</select>
 	
 	<select id="getNoticeList" parameterType="hashmap" resultType="NoticeDTO">
 		<choose>
-			<when test='searchKeyword.equals("total")'>
-				<choose>
+				<when test='searchKeyword.equals("total")'>
+					<choose>
 					<when test='searchWord.equals("")'>
-						SELECT
-							*
-						FROM
-							NOTICE
-						ORDER BY
-							ENROLL_DT DESC
-						LIMIT
-							#{startBoardIdx}, #{onePageViewCnt}
+					SELECT 
+						*
+					FROM 
+						NOTICE
+					ORDER BY 
+						ENROLL_DT DESC
+					LIMIT
+						#{startBoardIdx}, #{onePageViewCnt}
 					</when>
 					<otherwise>
-						SELECT
+						SELECT 
 							*
 						FROM
-							NOTICE
+						 	NOTICE
 						WHERE
-							ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%') OR
+							ADMIN_ID LIKE CONCAT('%',#{searchWord}, '%') OR
 							SUBJECT LIKE CONCAT('%', #{searchWord}, '%') OR
 							CONTENT LIKE CONCAT('%', #{searchWord}, '%')
 						ORDER BY 
@@ -71,31 +71,29 @@
 						LIMIT
 							#{startBoardIdx}, #{onePageViewCnt}
 					</otherwise>
-				</choose>
-			</when>
-			<otherwise>
-				SELECT 
-					*
-				FROM
-					NOTICE
-				WHERE
-					<if test='searchKeyword.equals("adminId")'>
-						ADMIN_ID LIKE CONCAT('%', #{searchWord}, '%')
-					</if>
-					<if test='searchKeyword.equals("subject")'>
-						SUBJECT LIKE CONCAT('%', #{searchWord}, '%')
-					</if>
-					<if test='searchKeyword.equals("content")'>
-						CONTENT LIKE CONCAT('%', #{searchWord}, '%')
-					</if>
-				ORDER BY 
-					ENROLL_DT DESC
-				LIMIT
-					#{startBoardIdx}, #{onePageViewCnt}
-			</otherwise>
-		</choose>
+					</choose>
+				</when>
+				<otherwise>
+					SELECT 
+						*
+					FROM 
+						NOTICE
+					WHERE
+						<if test='searchKeyword.equals("adminId")'>
+							ADMIN_ID LIKE CONCAT('%',#{searchWord},'%')
+						</if>
+						<if test='searchKeyword.equals("subject")'>
+							SUBJECT LIKE CONCAT('%', #{searchWord}, '%')
+						</if>
+						<if test='searchKeyword.equals("content")'>
+							CONTENT LIKE CONCAT('%', #{searchWord}, '%')
+						</if>
+					ORDER BY 
+						ENROLL_DT DESC
+					LIMIT
+						#{startBoardIdx}, #{onePageViewCnt}
+				</otherwise>
+			</choose>
 	</select>
-
-
 
 </mapper>

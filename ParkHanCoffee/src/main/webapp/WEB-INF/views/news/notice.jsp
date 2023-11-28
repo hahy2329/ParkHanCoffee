@@ -7,6 +7,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	$.ready(function(){
+		
+		$("#onePageViewCnt").val("${onePageViewCnt}");
+		$("#searchKeyword").val("${searchKeyword}");
+		
+		
+	});
+	
+	function getBoardList(){
+		
+		var url = "${contextPath}/news/notice";
+			url +="?searchKeyword=" + $("#searchKeyword").val();
+			url +="&searchWord="+$("#searchWord").val();
+			url +="&onePageViewCnt="+$("#onePageViewCnt").val();
+		
+		location.href= url;
+	}
+
+</script>
 </head>
 <body>
 
@@ -18,19 +38,19 @@
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
 								<colgroup>
-									<col width="10%">
-									<col width="40%">
 									<col width="20%">
-									<col width="20%">
+									<col width="30%">
 									<col width="10%">
+									<col width="20%">
+									<col width="30%">
 								</colgroup>
 								<tr>
 									<td>조회 : <span style="color: red;">${allBoardCnt }개</span></td>
 									<td colspan="4" align="right">
 										<select id="onePageViewCnt" onchange="getBoardList()">
-											<option <c:if test="${onePageViewCnt eq 5}">selected</c:if>></option>
-											<option <c:if test="${onePageViewCnt eq 7}">selected</c:if>></option>
-											<option <c:if test="${onePageViewCnt eq 10}">selected</c:if>></option>
+											<option <c:if test="${onePageViewCnt eq 5}">selected</c:if>>5</option>
+											<option <c:if test="${onePageViewCnt eq 7}">selected</c:if>>7</option>
+											<option <c:if test="${onePageViewCnt eq 10}">selected</c:if>>10</option>
 										</select>
 									</td>
 								</tr>
@@ -50,7 +70,7 @@
 									<td class="column-4">${noticeDTO.enrollDt } </td>
 									<td class="column-5">${noticeDTO.readCnt }</td>
 								</tr>
-							</c:forEach>	
+							</c:forEach>
 							</table>
 						</div>
  						<div style="display: table; margin-left: auto; margin-right: auto">
@@ -71,12 +91,32 @@
                         			</li>
                         		</c:if>
                         	</ul>
+                        	  <div class="flex-w flex-m m-r-20 m-tb-5">
+								<select id="searchKeyword">
+	                            			<option value="total">전체검색</option>
+	                            			<option value="adminId">아이디</option>
+	                            			<option value="subject">제목</option>
+	                            			<option value="content">내용</option>
+	                            </select> &nbsp;
+	                            
+	                            <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" id="searchWord" name="searchWord" value="${searchWord }">
+	                            <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" onclick="getBoardList()">
+									검색
+								</div>
+								<c:if test="${sessionScope.adminId ne null }">
+									<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" onclick="location.href='${contextPath}/news/addNotice'">
+										글쓰기
+									</div>
+								</c:if>
+							</div>
+							
                         </div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
+	
 
 </body>
 </html>
